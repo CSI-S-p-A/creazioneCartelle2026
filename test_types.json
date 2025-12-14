@@ -1,0 +1,18 @@
+{
+  "test_list": [
+    {
+      "type": "AEBC",
+      "tests": ["CCRs", "CCRm", "CCRb", "CCFhos", "CCFhol", "CCFtap", "CCCscp"]
+    },
+    { "type": "AEBM", "tests": ["CMRs", "CMRb", "CMFtap", "CMCscp"] },
+    { "type": "AEBP", "tests": ["CPLA", "CPTA", "CPNA", "CPFA", "CPNCO"] },
+    {
+      "type": "AEBB",
+      "tests": ["CBLA", "CBTA", "CBNA", "CBFA", "CBNAO", "CBDA"]
+    },
+    {
+      "type": "LSS",
+      "tests": ["ELK-RE", "ELK-ON", "ELK-OV"]
+    }
+  ]
+}

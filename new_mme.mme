@@ -1,0 +1,30 @@
+Data format edition number:	1.6
+Laboratory name:	CSI S.p.A.
+Customer name:	Euro NCAP
+Customer project ref. number:	1111
+Title:	Euro NCAP 2026
+Timestamp:	YYYY/MM/DD,HH:MM
+Scenario:	[CCRs,CCRm,CMRs,CMRb]
+Type of the test:	[AEB/AES/ESS]
+Condition of test:	[   ,D,N,fs,ns,fo,no]
+Region:	EU
+Robustness Layer:	[Type;Robustness layer;Parameter]
+Robustness Layer:	Target;S(or Speed);20(kph)
+Name of test object 1:	Toyota Yaris
+Driver Position object 1:	1
+Ref. number of test object 1:	VIN
+S/W version of TOB 1:	[OEM has to specify this]
+Dimensions test object 1:	[length],[width]
+Shape Front TOB 1:	(x1;y1), (x2;y2), (x3;y3), (x4;y4), (x5;y5) (x6;y6), (x7;y7)
+Shape Rear TOB 1:	(x1;y1), (x2;y2), (x3;y3), (x4;y4), (x5;y5) (x6;y6), (x7;y7)
+Shape Right Side TOB 1:	(x1;y1), (x2;y2), (x3;y3), (x4;y4), (x5;y5) (x6;y6), (x7;y7)
+Shape Left Side TOB 1:	(x1;y1), (x2;y2), (x3;y3), (x4;y4), (x5;y5) (x6;y6), (x7;y7)
+Velocity longitudinal TOB1:	45 kph
+Velocity lateral TOB1:	0.2 mps
+Impact side TOB 1:	[FR,LE,RI,RE]
+Impact location of test object 1:	50%
+Name of test object 2:	[PTa,PTc,VUT,EMT,...]
+Velocity test object 2:	7 kph
+Acceleration test object 2:	-4 m/s2
+Heading test object 2:	[target heading]
+Type of data source:	Pysical_Tests

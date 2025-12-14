@@ -1,0 +1,74 @@
+{
+  "test_specifications": [
+    {
+      "name": "CCRs",
+      "test_variables": [
+        {
+          "key": "test_type",
+          "display_name": "Test Type",
+          "user_input": true,
+          "value": ["AEB", "FCW"],
+          "value_name": ["AEB", "FCW"]
+        },
+        {
+          "key": "test_condition",
+          "user_input": false,
+          "value": "N/A"
+        },
+        {
+          "key": "long_speed_VUT",
+          "display_name": "VUT Speed",
+          "user_input": true,
+          "value": [2.78, 5.56, 8.33, 11.11, 13.89, 16.67, 19.44, 22.22],
+          "value_name": [
+            "10 kph",
+            "20 kph",
+            "30 kph",
+            "40 kph",
+            "50 kph",
+            "60 kph",
+            "70 kph",
+            "80 kph"
+          ]
+        },
+        {
+          "key": "lat_speed_VUT",
+          "user_input": false,
+          "value": 0.0
+        },
+        {
+          "key": "impact_side",
+          "user_input": false,
+          "value": "FR"
+        },
+        {
+          "key": "overlap",
+          "display_name": "Overlap",
+          "user_input": true,
+          "value": [125, 100, 75, 50, 25, 0, -25],
+          "value_name": ["125%", "100%", "75%", "50%", "25%", "0%", "-25%"]
+        },
+        {
+          "key": "target_type",
+          "user_input": false,
+          "value": "VUT"
+        },
+        {
+          "key": "target_speed",
+          "user_input": false,
+          "value": 0.0
+        },
+        {
+          "key": "target_acceleration",
+          "user_input": false,
+          "value": 0.0
+        },
+        {
+          "key": "target_heading",
+          "user_input": false,
+          "value": 360.0
+        }
+      ]
+    }
+  ]
+}

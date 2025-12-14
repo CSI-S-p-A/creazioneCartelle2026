@@ -1,0 +1,12 @@
+Scenario:	[CCRs,CCRm,CMRs,CMRb]
+Type of the test:	[AEB/AES/ESS]
+Condition of test:	[   ,D,N,fs,ns,fo,no]
+Robustness Layer:	[Type;Robustness layer;Parameter]
+Velocity longitudinal TOB1:	12.5 (45 kph)
+Velocity lateral TOB1:	0.2 (mps)
+Impact side TOB 1:	[FR,LE,RI,RE] //front left right rear
+Impact location of test object 1:	50%
+Name of test object 2:	[PTa,PTc,VUT,EMT,...]
+Velocity test object 2:	1.94 (7 kph)
+Acceleration test object 2:	-4 (m/s2)
+Heading test object 2:	[target heading]
