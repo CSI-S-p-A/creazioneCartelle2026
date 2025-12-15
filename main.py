@@ -152,9 +152,12 @@ class TestSpecWindow(QDialog):
 
     def insert_test_button_pressed(self):
         current_test_property = self.fixed_parameters.copy()
+        current_test_property["_ui"] = {}
 
         for combo in self.parameter_widget.findChildren(QComboBox):
-            current_test_property[combo.property("parameter_key")] = combo.currentData()
+            key = combo.property("parameter_key")
+            current_test_property[key] = combo.currentData()
+            current_test_property["_ui"][key] = combo.currentText()
 
         test_list.append(current_test_property)
 
