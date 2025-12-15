@@ -110,10 +110,11 @@ class TestSpecWindow(QDialog):
         main_layout = QVBoxLayout(self)
 
         self.parameter_widget = QWidget()
+        self.robustness_widget = QWidget()
         # Secondary layout two orizontal boxes for the two columns
         columns_layout = QHBoxLayout()
         parameters_layout = QFormLayout(self.parameter_widget)
-        robustness_layout = QFormLayout()
+        robustness_layout = QFormLayout(self.robustness_widget)
 
         self.fixed_parameters = {"name": self.test_spec["name"]}
 
@@ -142,15 +143,15 @@ class TestSpecWindow(QDialog):
             "Robustness Parameter", self.combo_robustness_parameter
         )
 
-        columns_layout.addLayout(parameters_layout)
-        columns_layout.addLayout(robustness_layout)
+        columns_layout.addWidget(self.parameter_widget)
+        columns_layout.addWidget(self.robustness_widget)
 
         self.button_add_test = QPushButton("Insert Test")
         main_layout.addLayout(columns_layout)
         main_layout.addWidget(self.button_add_test)
 
     def insert_test_button_pressed(self):
-        current_test_property = self.fixed_parameters
+        current_test_property = self.fixed_parameters.copy()
 
         for combo in self.parameter_widget.findChildren(QComboBox):
             current_test_property[combo.property("parameter_key")] = combo.currentData()
