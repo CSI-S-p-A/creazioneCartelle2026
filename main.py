@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from pprint import pprint
 
+from PySide6.QtCore import Signal
 from PySide6.QtWidgets import (
     QApplication,
     QComboBox,
@@ -11,6 +12,7 @@ from PySide6.QtWidgets import (
     QHBoxLayout,
     QMainWindow,
     QPushButton,
+    QTableWidgetItem,
     QVBoxLayout,
     QWidget,
 )
@@ -91,8 +93,26 @@ class MainWindow(QMainWindow):
         self.test_window = TestSpecWindow(spec, self)
         self.test_window.exec()
 
+    def on_test_created(self, test: dict):
+        test_list.append(test)
+        pprint(test_list)
+        self.refresh_table()
+
+    def refresh_table(self):
+        table = self.ui.tableWidget
+        max_cols = 10
+
+        table.setColumnCount(len(test_list))
+        table.setColumnCount(max_cols)
+
+        for row, test in enumerate(test_list):
+            for row, col in enumerate(test["ui"]["columns"]):
+                table.setItem(row, col, QTableWidgetItem())
+
 
 class TestSpecWindow(QDialog):
+    test_created = Signal(dict)
+
     def __init__(self, test_spec: dict, parent=None):
         super().__init__(parent)
         self.test_spec = test_spec
@@ -153,15 +173,14 @@ class TestSpecWindow(QDialog):
     def insert_test_button_pressed(self):
         current_test_property = self.fixed_parameters.copy()
         current_test_property["_ui"] = {}
+        current_test_property["_ui"]["columns"] = []
 
         for combo in self.parameter_widget.findChildren(QComboBox):
             key = combo.property("parameter_key")
             current_test_property[key] = combo.currentData()
-            current_test_property["_ui"][key] = combo.currentText()
+            current_test_property["_ui"]["columns"].append((key, combo.currentText()))
 
-        test_list.append(current_test_property)
-
-        pprint(test_list)
+        self.test_created.emit(current_test_property)
 
 
 def test_json_loading(folder: Path) -> dict:
