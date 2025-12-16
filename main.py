@@ -10,8 +10,10 @@ from PySide6.QtWidgets import (
     QDialog,
     QFormLayout,
     QHBoxLayout,
+    QHeaderView,
     QMainWindow,
     QPushButton,
+    QTableWidget,
     QTableWidgetItem,
     QVBoxLayout,
     QWidget,
@@ -68,6 +70,12 @@ class MainWindow(QMainWindow):
         if self.ui.combo_test_type.count() > 0:
             self.test_type_selection(self.ui.combo_test_type.currentIndex())
 
+        table = self.ui.tableWidget
+
+        table.setEditTriggers(QTableWidget.EditTrigger.AllEditTriggers.NoEditTriggers)
+        table.horizontalHeader().setVisible(False)
+        table.verticalHeader().setVisible(False)
+
         self.database_test_specs = test_json_loading(Path("test_json"))
 
         self.ui.button_add_new_test.clicked.connect(self.add_new_test_button_press)
@@ -81,6 +89,7 @@ class MainWindow(QMainWindow):
 
     def add_new_test_button_press(self):
         selected_test_name = self.ui.combo_test_name.currentText()
+
         if not selected_test_name:
             return
 
@@ -91,23 +100,60 @@ class MainWindow(QMainWindow):
             self.test_window.close()
 
         self.test_window = TestSpecWindow(spec, self)
+
+        self.test_window.test_created.connect(self.on_test_created)
         self.test_window.exec()
 
     def on_test_created(self, test: dict):
         test_list.append(test)
-        pprint(test_list)
+
         self.refresh_table()
 
     def refresh_table(self):
         table = self.ui.tableWidget
-        max_cols = 10
+        max_cols = 9
 
-        table.setColumnCount(len(test_list))
+        table.setRowCount(len(test_list))
         table.setColumnCount(max_cols)
 
-        for row, test in enumerate(test_list):
-            for row, col in enumerate(test["ui"]["columns"]):
-                table.setItem(row, col, QTableWidgetItem())
+        for row_index, test in enumerate(reversed(test_list)):
+            for col_index, column in enumerate(test["_ui"]["columns"]):
+                item = QTableWidgetItem(column[1])
+                table.setItem(row_index, col_index, item)
+
+            button_delete_test = QPushButton("X")
+            button_delete_test.setFixedWidth(30)
+
+            button_delete_test.clicked.connect(
+                lambda _, btn=button_delete_test: self.delete_test(btn)
+            )
+
+            table.setCellWidget(row_index, max_cols - 1, button_delete_test)
+
+        for col in range(max_cols - 1):
+            table.horizontalHeader().setSectionResizeMode(
+                col, QHeaderView.ResizeMode.Stretch
+            )
+
+        # Set the last column to fixed width
+        table.horizontalHeader().setSectionResizeMode(
+            max_cols - 1, QHeaderView.ResizeMode.Fixed
+        )
+        table.setColumnWidth(max_cols - 1, 30)
+
+        print("-----------------------------------------------------------------")
+        pprint(test_list)
+
+    def delete_test(self, button: QPushButton):
+        table = self.ui.tableWidget
+        index_to_delete = table.indexAt(button.pos())
+
+        displayed_row = index_to_delete.row()
+
+        data_row = len(test_list) - 1 - displayed_row
+
+        del test_list[data_row]
+        self.refresh_table()
 
 
 class TestSpecWindow(QDialog):
@@ -174,6 +220,9 @@ class TestSpecWindow(QDialog):
         current_test_property = self.fixed_parameters.copy()
         current_test_property["_ui"] = {}
         current_test_property["_ui"]["columns"] = []
+        current_test_property["_ui"]["columns"].append(
+            ("name", current_test_property["name"])
+        )
 
         for combo in self.parameter_widget.findChildren(QComboBox):
             key = combo.property("parameter_key")
