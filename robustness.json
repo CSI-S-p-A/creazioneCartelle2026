@@ -1,0 +1,177 @@
+{
+  "robustness": [
+    { "type": "n_a", "display_value": "N/A" },
+    {
+      "type": "VUT",
+      "display_value": "VUT",
+      "layers": [
+        {
+          "key": "driver_input",
+          "display_name": "Driver Input",
+          "options": false,
+          "value": "DI"
+        },
+        {
+          "key": "impact_location",
+          "display_name": "Impact Location",
+          "options": [
+            {
+              "value": 10,
+              "display_value": "+10%"
+            },
+            {
+              "value": -10,
+              "display_value": "-10%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "target",
+      "display_value": "Target",
+      "layers": [
+        {
+          "key": "speed",
+          "display_value": "Speed",
+          "options": [
+            {
+              "value": 1.39,
+              "label": "5 kph"
+            },
+            {
+              "value": -1.39,
+              "label": "-5 kph"
+            }
+          ]
+        },
+        {
+          "key": "acceleration",
+          "display_name": "Acceleration",
+          "options": [
+            {
+              "value": 1,
+              "label": "1 mpss"
+            },
+            {
+              "value": -1,
+              "label": "-1 mpss"
+            }
+          ]
+        },
+        {
+          "key": "offset",
+          "display_value": "Offset",
+          "options": [
+            {
+              "value": 5,
+              "label": "5 m"
+            },
+            {
+              "value": -5,
+              "label": "-5 kph"
+            }
+          ]
+        },
+        {
+          "key": "trajectory_heading",
+          "display_value": "Trajectory/Heading",
+          "options": [
+            {
+              "value": 0.26,
+              "label": "15 deg"
+            },
+            {
+              "value": -0.26,
+              "label": "-15 deg"
+            }
+          ]
+        },
+        {
+          "key": "type",
+          "display_value": "Type",
+          "options": [
+            {
+              "value": "todo",
+              "label": "TODO"
+            },
+            {
+              "value": "todo",
+              "label": "TODO"
+            }
+          ]
+        },
+        {
+          "key": "appearance",
+          "display_value": "Appearance",
+          "options": [
+            {
+              "value": "todo",
+              "label": "TODO"
+            },
+            {
+              "value": "todo",
+              "label": "TODO"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "enviroment",
+      "display_value": "Enviroment",
+      "layers": [
+        {
+          "key": "awc",
+          "display_name": "AWC",
+          "options": false,
+          "value": "AWC"
+        },
+        {
+          "key": "illumination",
+          "display_name": "Illumination",
+          "options": [
+            {
+              "value": "N",
+              "label": "Night"
+            },
+            {
+              "value": "SG",
+              "label": "Sun Glare"
+            },
+            {
+              "value": "HG",
+              "label": "Headlamp Glare"
+            }
+          ]
+        },
+        {
+          "key": "infr_clutter",
+          "display_name": "Infrastructure/Clutter",
+          "options": false,
+          "value": "IC"
+        },
+        {
+          "key": "obsc_obstru",
+          "display_name": "Obscuration/Obstruction",
+          "options": false,
+          "value": "IC"
+        },
+        {
+          "key": "weather",
+          "display_name": "Adverse Weather",
+          "options": [
+            {
+              "value": "RA",
+              "label": "Rain"
+            },
+            {
+              "value": "FO",
+              "label": "Fog"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
