@@ -1,5 +1,4 @@
 import json
-from dataclasses import dataclass
 from pathlib import Path
 from pprint import pprint
 
@@ -20,30 +19,6 @@ from PySide6.QtWidgets import (
 )
 
 from window import Ui_MainWindow
-
-
-@dataclass
-class Robustness:
-    type: str
-    robustness: str
-    parameter: str
-
-
-@dataclass
-class Test:
-    name: str
-    type: str
-    test_condition: str
-    long_speed_VUT: float
-    lat_speed_VUT: float
-    impact_side: str
-    overlap: int
-    target_type: str
-    target_speed: float
-    target_accelleration: float
-    target_heading: float
-    robustness: Robustness
-
 
 test_list = []
 
@@ -78,6 +53,9 @@ class MainWindow(QMainWindow):
 
         self.database_test_specs = test_json_loading(Path("test_json"))
 
+        with open("robustness.json", "r", encoding="utf-8") as f:
+            self.database_robustness = json.load(f)
+
         self.ui.button_add_new_test.clicked.connect(self.add_new_test_button_press)
 
     def test_type_selection(self, index):
@@ -99,7 +77,7 @@ class MainWindow(QMainWindow):
         if hasattr(self, "test_window"):
             self.test_window.close()
 
-        self.test_window = TestSpecWindow(spec, self)
+        self.test_window = TestSpecWindow(spec, self.database_robustness, self)
 
         self.test_window.test_created.connect(self.on_test_created)
         self.test_window.exec()
@@ -159,9 +137,11 @@ class MainWindow(QMainWindow):
 class TestSpecWindow(QDialog):
     test_created = Signal(dict)
 
-    def __init__(self, test_spec: dict, parent=None):
+    def __init__(self, test_spec: dict, robustness_spec: dict, parent=None):
         super().__init__(parent)
         self.test_spec = test_spec
+        self.robustness_spec = robustness_spec
+
         self.setWindowTitle(test_spec["name"])
         self._build_ui()
 
@@ -169,6 +149,14 @@ class TestSpecWindow(QDialog):
         self.setFixedSize(self.size())
 
         self.button_add_test.clicked.connect(self.insert_test_button_pressed)
+
+        self.combo_robustness_type.currentIndexChanged.connect(
+            self.robustness_type_selection
+        )
+
+        self.combo_robustness_layer.currentIndexChanged.connect(
+            self.robustness_layer_selection
+        )
 
     def _build_ui(self):
         # The main layout, two verical boxes, one for the columns together and one for the button
@@ -203,6 +191,11 @@ class TestSpecWindow(QDialog):
         self.combo_robustness_layer = QComboBox()
         self.combo_robustness_parameter = QComboBox()
 
+        for robustness_type in self.robustness_spec["robustness"]:
+            self.combo_robustness_type.addItem(
+                robustness_type["display_name"], robustness_type
+            )
+
         robustness_layout.addRow("Robustness Type", self.combo_robustness_type)
         robustness_layout.addRow("Robustness Layer", self.combo_robustness_layer)
         robustness_layout.addRow(
@@ -215,6 +208,9 @@ class TestSpecWindow(QDialog):
         self.button_add_test = QPushButton("Insert Test")
         main_layout.addLayout(columns_layout)
         main_layout.addWidget(self.button_add_test)
+
+        if self.combo_robustness_type.count() > 0:
+            self.robustness_type_selection(self.combo_robustness_type.currentIndex())
 
     def insert_test_button_pressed(self):
         current_test_property = self.fixed_parameters.copy()
@@ -230,6 +226,42 @@ class TestSpecWindow(QDialog):
             current_test_property["_ui"]["columns"].append((key, combo.currentText()))
 
         self.test_created.emit(current_test_property)
+
+    def robustness_type_selection(self, index):
+        self.combo_robustness_layer.clear()
+        self.combo_robustness_parameter.clear()
+
+        layers = self.combo_robustness_type.currentData()["layers"]
+
+        if not layers:
+            self.combo_robustness_layer.setEnabled(False)
+            self.combo_robustness_parameter.setEnabled(False)
+            return
+
+        self.combo_robustness_layer.setEnabled(True)
+        for layer in layers:
+            self.combo_robustness_layer.addItem(layer["display_name"], layer)
+
+        self.robustness_layer_selection(index)
+
+    def robustness_layer_selection(self, index):
+        self.combo_robustness_parameter.clear()
+        layer = self.combo_robustness_layer.currentData()
+
+        if not layer:
+            self.combo_robustness_parameter.setEnabled(False)
+            return
+
+        options = layer.get("options")
+
+        if not options:
+            self.combo_robustness_parameter.setEnabled(False)
+            return
+
+        self.combo_robustness_parameter.setEnabled(True)
+
+        for option in options:
+            self.combo_robustness_parameter.addItem(option["label"], option["value"])
 
 
 def test_json_loading(folder: Path) -> dict:

@@ -1,9 +1,9 @@
 {
   "robustness": [
-    { "type": "n_a", "display_value": "N/A" },
+    { "type": "n_a", "display_name": "N/A", "layers": false },
     {
       "type": "VUT",
-      "display_value": "VUT",
+      "display_name": "VUT",
       "layers": [
         {
           "key": "driver_input",
@@ -17,11 +17,11 @@
           "options": [
             {
               "value": 10,
-              "display_value": "+10%"
+              "label": "+10%"
             },
             {
               "value": -10,
-              "display_value": "-10%"
+              "label": "-10%"
             }
           ]
         }
@@ -29,11 +29,11 @@
     },
     {
       "type": "target",
-      "display_value": "Target",
+      "display_name": "Target",
       "layers": [
         {
           "key": "speed",
-          "display_value": "Speed",
+          "display_name": "Speed",
           "options": [
             {
               "value": 1.39,
@@ -61,7 +61,7 @@
         },
         {
           "key": "offset",
-          "display_value": "Offset",
+          "display_name": "Offset",
           "options": [
             {
               "value": 5,
@@ -69,13 +69,13 @@
             },
             {
               "value": -5,
-              "label": "-5 kph"
+              "label": "-5 m"
             }
           ]
         },
         {
           "key": "trajectory_heading",
-          "display_value": "Trajectory/Heading",
+          "display_name": "Trajectory/Heading",
           "options": [
             {
               "value": 0.26,
@@ -89,7 +89,7 @@
         },
         {
           "key": "type",
-          "display_value": "Type",
+          "display_name": "Type",
           "options": [
             {
               "value": "todo",
@@ -103,7 +103,7 @@
         },
         {
           "key": "appearance",
-          "display_value": "Appearance",
+          "display_name": "Appearance",
           "options": [
             {
               "value": "todo",
@@ -119,7 +119,7 @@
     },
     {
       "type": "enviroment",
-      "display_value": "Enviroment",
+      "display_name": "Enviroment",
       "layers": [
         {
           "key": "awc",
