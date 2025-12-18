@@ -1,18 +1,17 @@
 {
   "robustness": [
-    { "type": "n_a", "display_name": "N/A", "layers": false },
+    { "key": "N/A", "display_name": "N/A", "layers": false },
     {
-      "type": "VUT",
+      "key": "VUT",
       "display_name": "VUT",
       "layers": [
         {
-          "key": "driver_input",
+          "key": "DI",
           "display_name": "Driver Input",
-          "options": false,
-          "value": "DI"
+          "options": false
         },
         {
-          "key": "impact_location",
+          "key": "IL",
           "display_name": "Impact Location",
           "options": [
             {
@@ -28,11 +27,11 @@
       ]
     },
     {
-      "type": "target",
+      "key": "Target",
       "display_name": "Target",
       "layers": [
         {
-          "key": "speed",
+          "key": "S",
           "display_name": "Speed",
           "options": [
             {
@@ -46,7 +45,7 @@
           ]
         },
         {
-          "key": "acceleration",
+          "key": "A",
           "display_name": "Acceleration",
           "options": [
             {
@@ -60,7 +59,7 @@
           ]
         },
         {
-          "key": "offset",
+          "key": "IP",
           "display_name": "Offset",
           "options": [
             {
@@ -74,7 +73,7 @@
           ]
         },
         {
-          "key": "trajectory_heading",
+          "key": "H",
           "display_name": "Trajectory/Heading",
           "options": [
             {
@@ -88,7 +87,7 @@
           ]
         },
         {
-          "key": "type",
+          "key": "TY",
           "display_name": "Type",
           "options": [
             {
@@ -102,7 +101,7 @@
           ]
         },
         {
-          "key": "appearance",
+          "key": "AP",
           "display_name": "Appearance",
           "options": [
             {
@@ -118,32 +117,28 @@
       ]
     },
     {
-      "type": "enviroment",
+      "key": "Enviroment",
       "display_name": "Enviroment",
       "layers": [
         {
-          "key": "awc",
+          "key": "AWC",
           "display_name": "AWC",
-          "options": false,
-          "value": "AWC"
+          "options": false
         },
         {
-          "key": "illumination",
-          "display_name": "Illumination",
-          "options": [
-            {
-              "value": "N",
-              "label": "Night"
-            },
-            {
-              "value": "SG",
-              "label": "Sun Glare"
-            },
-            {
-              "value": "HG",
-              "label": "Headlamp Glare"
-            }
-          ]
+          "key": "N",
+          "display_name": "Nighttime",
+          "options": false
+        },
+        {
+          "key": "HG",
+          "display_name": "Headlamp Glare",
+          "options": false
+        },
+        {
+          "key": "SG",
+          "display_name": "Sun Glare",
+          "options": false
         },
         {
           "key": "infr_clutter",
@@ -152,13 +147,12 @@
           "value": "IC"
         },
         {
-          "key": "obsc_obstru",
+          "key": "IC",
           "display_name": "Obscuration/Obstruction",
-          "options": false,
-          "value": "IC"
+          "options": false
         },
         {
-          "key": "weather",
+          "key": "W",
           "display_name": "Adverse Weather",
           "options": [
             {

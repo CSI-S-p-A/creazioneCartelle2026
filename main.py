@@ -1,4 +1,5 @@
 import json
+from ast import Return
 from pathlib import Path
 from pprint import pprint
 
@@ -89,6 +90,7 @@ class MainWindow(QMainWindow):
 
     def refresh_table(self):
         table = self.ui.tableWidget
+        table.clearContents()
         max_cols = 9
 
         table.setRowCount(len(test_list))
@@ -224,6 +226,33 @@ class TestSpecWindow(QDialog):
             key = combo.property("parameter_key")
             current_test_property[key] = combo.currentData()
             current_test_property["_ui"]["columns"].append((key, combo.currentText()))
+
+        # Managing the robustness
+        type_key = self.combo_robustness_type.currentData()["key"]
+        current_test_property["robustness_type"] = type_key
+        current_test_property["_ui"]["columns"].append(
+            ("robustness_type", self.combo_robustness_type.currentText())
+        )
+
+        if not self.combo_robustness_type.currentData()["layers"]:
+            self.test_created.emit(current_test_property)
+            return
+
+        layer_key = self.combo_robustness_layer.currentData()["key"]
+        current_test_property["robustness_layer"] = layer_key
+        current_test_property["_ui"]["columns"].append(
+            ("robustness_layer", self.combo_robustness_layer.currentText())
+        )
+
+        if not self.combo_robustness_layer.currentData()["options"]:
+            self.test_created.emit(current_test_property)
+            return
+
+        parameter_value = self.combo_robustness_parameter.currentData()
+        current_test_property["robustness_parameter"] = parameter_value
+        current_test_property["_ui"]["columns"].append(
+            ("robustness_parameter", self.combo_robustness_parameter.currentText())
+        )
 
         self.test_created.emit(current_test_property)
 
