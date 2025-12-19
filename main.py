@@ -1,17 +1,20 @@
 import json
-from ast import Return
+from dataclasses import dataclass, field
 from pathlib import Path
 from pprint import pprint
+from typing import List
 
 from PySide6.QtCore import Signal
 from PySide6.QtWidgets import (
     QApplication,
     QComboBox,
     QDialog,
+    QFileDialog,
     QFormLayout,
     QHBoxLayout,
     QHeaderView,
     QMainWindow,
+    QMessageBox,
     QPushButton,
     QTableWidget,
     QTableWidgetItem,
@@ -19,9 +22,40 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+import file_folder_manager
 from window import Ui_MainWindow
 
 test_list = []
+
+
+@dataclass
+class Point:
+    x: float
+    y: float
+
+
+@dataclass
+class CarProfile:
+    front: List[Point] = field(default_factory=list)
+    side: List[Point] = field(default_factory=list)
+    back: List[Point] = field(default_factory=list)
+
+
+@dataclass
+class CarDimensions:
+    length: float
+    width: float
+    profile: CarProfile
+
+
+@dataclass
+class CarInfo:
+    year: str
+    number: str
+    model_name: str
+    oem: str
+    vin: str
+    sw_version: str
 
 
 class MainWindow(QMainWindow):
@@ -58,6 +92,7 @@ class MainWindow(QMainWindow):
             self.database_robustness = json.load(f)
 
         self.ui.button_add_new_test.clicked.connect(self.add_new_test_button_press)
+        self.ui.button_create_folders.clicked.connect(self.create_folder_press)
 
     def test_type_selection(self, index):
         tests = self.ui.combo_test_type.itemData(index)
@@ -91,7 +126,7 @@ class MainWindow(QMainWindow):
     def refresh_table(self):
         table = self.ui.tableWidget
         table.clearContents()
-        max_cols = 9
+        max_cols = 10
 
         table.setRowCount(len(test_list))
         table.setColumnCount(max_cols)
@@ -134,6 +169,52 @@ class MainWindow(QMainWindow):
 
         del test_list[data_row]
         self.refresh_table()
+
+    def create_folder_press(self):
+        main_folder_string = QFileDialog.getExistingDirectory(
+            None, "Select where you want the folder to be created: "
+        )
+        if not main_folder_string:
+            QMessageBox.warning(self, "Warning", "No folder was selected.")
+            return
+        else:
+            main_folder = Path(main_folder_string)
+            file_folder_manager.folder_creations(
+                main_folder, test_list, self.loadDimensions(), self.loadInfo()
+            )
+
+    def loadDimensions(self) -> CarDimensions:
+        profile = CarProfile()
+
+        SECTIONS = ("front", "side", "back")
+
+        for section in SECTIONS:
+            for i in range(1, 8):  # 7 points each
+                x_text = getattr(self.ui, f"x{i}{section.capitalize()}")
+                y_text = getattr(self.ui, f"y{i}{section.capitalize()}")
+
+                x = float(x_text.text().strip())
+                y = float(y_text.text().strip())
+                getattr(profile, section).append(Point(x, y))
+
+        output = CarDimensions(
+            length=float(self.ui.textLenght.text().strip()),
+            width=float(self.ui.textWidth.text().strip()),
+            profile=profile,
+        )
+
+        return output
+
+    def loadInfo(self) -> CarInfo:
+        output = CarInfo(
+            year=self.ui.textbox_year.text().strip(),
+            number=self.ui.textbox_number.text().strip(),
+            model_name=self.ui.textbox_model.text().strip(),
+            oem=self.ui.textbox_oem.text().strip(),
+            vin=self.ui.textbox_vin.text().strip(),
+            sw_version=self.ui.textbox_software.text().strip(),
+        )
+        return output
 
 
 class TestSpecWindow(QDialog):

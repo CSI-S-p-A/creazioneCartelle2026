@@ -141,13 +141,12 @@
           "options": false
         },
         {
-          "key": "infr_clutter",
+          "key": "IC",
           "display_name": "Infrastructure/Clutter",
-          "options": false,
-          "value": "IC"
+          "options": false
         },
         {
-          "key": "IC",
+          "key": "O",
           "display_name": "Obscuration/Obstruction",
           "options": false
         },
