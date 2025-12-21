@@ -1,3 +1,4 @@
+import re
 from datetime import datetime
 from pathlib import Path
 
@@ -7,24 +8,50 @@ from main import CarDimensions, CarInfo
 def folder_creations(
     parent_folder: Path, test_list, dimentions: CarDimensions, info: CarInfo
 ):
-    main_folder = parent_folder / "Test"
-    main_folder.mkdir(exist_ok=True)
+    folder_prefix = f"{info.year[-2:]}-{info.oem}-{info.number}"
 
-    idx = 0
+    main_folder = parent_folder / f"{folder_prefix}-{info.model_name}"
+    main_folder.mkdir(exist_ok=True, parents=True)
 
     for test in test_list:
-        test_folder = main_folder / str(idx)
-        test_folder.mkdir(exist_ok=True)
-        (test_folder / "Channel").mkdir(exist_ok=True)
-        (test_folder / "Movie").mkdir(exist_ok=True)
+        test_name = f"{info.number}"
+
+        for items in test["_ui"]["columns"]:
+            test_name = f"{test_name}-{sanitize_folder_name(items[1], '')}"
+
+        test_folder = main_folder / f"{folder_prefix}-{test['macro_type']}" / test_name
+        test_folder = create_unique_folder(test_folder)
+
+        (test_folder / "Channel").mkdir(exist_ok=True, parents=True)
+        (test_folder / "Movie").mkdir(exist_ok=True, parents=True)
 
         mme_file_lines = mme_processor(test, dimentions, info)
 
-        with open(test_folder / (str(idx) + ".mme"), "w", encoding="utf-8") as file:
+        with open(test_folder / (f"{test_name}.mme"), "w", encoding="utf-8") as file:
             for line in mme_file_lines:
                 file.write(line + "\n")
 
-        idx += 1
+
+def create_unique_folder(folder_name: Path) -> Path:
+    if not folder_name.exists():
+        folder_name.mkdir(parents=True)
+        return folder_name
+
+    counter = 2
+
+    while True:
+        new_path = folder_name.with_name(f"{folder_name.name}_{counter}")
+        if not new_path.exists():
+            new_path.mkdir(parents=True)
+            return new_path
+
+        counter += 1
+
+
+def sanitize_folder_name(name: str, replacement="_") -> str:
+    # Keep letters, numbers, spaces, dashes and underscores
+    name = re.sub(r"[^a-zA-Z0-9_-]", replacement, name)
+    return name.strip()
 
 
 def mme_processor(test, dimentions: CarDimensions, info: CarInfo):
@@ -79,7 +106,7 @@ def mme_processor(test, dimentions: CarDimensions, info: CarInfo):
 
     output.append(left_profile)
 
-    # TODO update the speed relative to the robustness layer
+    # TODO update the speed relative to the robustness layer maybe
 
     output.append("Velocity longitudinal TOB 1:\t" + str(test["long_speed_VUT"]))
     output.append("Velocity lateral TOB 1:\t" + str(test["lat_speed_VUT"]))
