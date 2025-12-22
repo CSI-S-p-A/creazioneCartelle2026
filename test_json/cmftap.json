@@ -1,0 +1,73 @@
+{
+  "name": "CMFtap",
+  "test_variables": [
+    {
+      "key": "test_type",
+      "user_input": false,
+      "value": "AEB"
+    },
+    {
+      "key": "test_condition",
+      "user_input": false,
+      "value": "N/A"
+    },
+    {
+      "key": "long_speed_VUT",
+      "display_name": "VUT Speed",
+      "user_input": true,
+      "default": 2.78,
+      "options": [
+        { "value": 2.78, "label": "10 kph" },
+        { "value": 4.17, "label": "15 kph" },
+        { "value": 5.56, "label": "20 kph" },
+        { "value": 6.94, "label": "25 kph" }
+      ]
+    },
+    {
+      "key": "lat_speed_VUT",
+      "user_input": false,
+      "value": 0.0
+    },
+    {
+      "key": "impact_side",
+      "user_input": false,
+      "value": "FR"
+    },
+    {
+      "key": "overlap",
+      "display_name": "Overlap",
+      "user_input": false,
+      "value": 50
+    },
+    {
+      "key": "target_type",
+      "user_input": false,
+      "value": "EMT"
+    },
+    {
+      "key": "target_speed",
+      "display_name": "Target Speed",
+      "user_input": true,
+      "default": 13.89,
+      "options": [
+        { "value": 5.56, "label": "20 kph" },
+        { "value": 8.33, "label": "30 kph" },
+        { "value": 11.11, "label": "40 kph" },
+        { "value": 13.89, "label": "50 kph" },
+        { "value": 16.67, "label": "60 kph" },
+        { "value": 19.44, "label": "70 kph" },
+        { "value": 22.22, "label": "80 kph" }
+      ]
+    },
+    {
+      "key": "target_acceleration",
+      "user_input": false,
+      "value": 0.0
+    },
+    {
+      "key": "target_heading",
+      "user_input": false,
+      "value": 180.0
+    }
+  ]
+}

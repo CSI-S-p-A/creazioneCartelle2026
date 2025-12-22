@@ -1,0 +1,86 @@
+{
+  "name": "CCCscp",
+  "test_variables": [
+    {
+      "key": "test_type",
+      "display_name": "Test Type",
+      "user_input": false,
+      "default": "AEB",
+      "options": [
+        { "value": "AEB", "label": "AEB" },
+        { "value": "FCW", "label": "FCW" }
+      ]
+    },
+    {
+      "key": "test_condition",
+      "user_input": false,
+      "value": "N/A"
+    },
+    {
+      "key": "long_speed_VUT",
+      "display_name": "VUT Speed",
+      "user_input": true,
+      "default": 5.56,
+      "options": [
+        { "value": 5.56, "label": "20 kph" },
+        { "value": 8.33, "label": "30 kph" },
+        { "value": 11.11, "label": "40 kph" },
+        { "value": 13.89, "label": "50 kph" },
+        { "value": 16.67, "label": "60 kph" },
+        { "value": 19.44, "label": "70 kph" },
+        { "value": 22.22, "label": "80 kph" },
+        { "value": 25.0, "label": "90 kph" },
+        { "value": 27.78, "label": "100 kph" },
+        { "value": 30.56, "label": "110 kph" },
+        { "value": 33.33, "label": "120 kph" },
+        { "value": 36.11, "label": "130 kph" }
+      ]
+    },
+    {
+      "key": "lat_speed_VUT",
+      "user_input": false,
+      "value": 0.0
+    },
+    {
+      "key": "impact_side",
+      "user_input": false,
+      "value": "FR"
+    },
+    {
+      "key": "overlap",
+      "display_name": "Overlap",
+      "user_input": false,
+      "value": 50
+    },
+    {
+      "key": "target_type",
+      "user_input": false,
+      "value": "VUT"
+    },
+    {
+      "key": "target_speed",
+      "display_name": "Target Speed",
+      "user_input": true,
+      "default": 5.56,
+      "options": [
+        { "value": 5.56, "label": "20 kph" },
+        { "value": 8.33, "label": "30 kph" },
+        { "value": 11.11, "label": "40 kph" },
+        { "value": 13.89, "label": "50 kph" },
+        { "value": 16.67, "label": "60 kph" },
+        { "value": 19.44, "label": "70 kph" },
+        { "value": 22.22, "label": "80 kph" }
+      ]
+    },
+    {
+      "key": "target_acceleration",
+      "user_input": false,
+      "value": 0.0
+    },
+    {
+      "key": "target_heading",
+      "user_input": false,
+      "value": 90.0
+    }
+  ]
+}
