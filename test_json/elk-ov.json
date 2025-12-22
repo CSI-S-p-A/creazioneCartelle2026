@@ -1,0 +1,103 @@
+{
+  "name": "ELK-OV",
+  "test_variables": [
+    {
+      "key": "test_type",
+      "display_name": "Test Type",
+      "user_input": true,
+      "default": "LSS",
+      "options": [
+        { "value": "LSS", "label": "LSS" },
+        { "value": "ESS", "label": "ESS" }
+      ]
+    },
+    {
+      "key": "test_condition",
+      "user_input": true,
+      "default": "U",
+      "options": [
+        { "value": "U", "label": "Unintentional" },
+        { "value": "I", "label": "Intentional" }
+      ]
+    },
+    {
+      "key": "long_speed_VUT",
+      "display_name": "VUT Speed",
+      "user_input": true,
+      "default": 13.89,
+      "options": [
+        { "value": 13.89, "label": "50 kph" },
+        { "value": 16.67, "label": "60 kph" },
+        { "value": 19.44, "label": "70 kph" },
+        { "value": 22.22, "label": "80 kph" },
+        { "value": 25.0, "label": "90 kph" },
+        { "value": 27.78, "label": "100 kph" },
+        { "value": 30.56, "label": "110 kph" },
+        { "value": 33.33, "label": "120 kph" },
+        { "value": 36.11, "label": "130 kph" }
+      ]
+    },
+    {
+      "key": "lat_speed_VUT",
+      "display_name": "Lateral Speed",
+      "user_input": true,
+      "default": 0.2,
+      "options": [
+        { "value": 0.2, "label": "0.2 mps" },
+        { "value": 0.3, "label": "0.3 mps" },
+        { "value": 0.4, "label": "0.4 mps" },
+        { "value": 0.5, "label": "0.5 mps" },
+        { "value": 0.6, "label": "0.6 mps" },
+        { "value": 0.7, "label": "0.7 mps" },
+        { "value": 0.8, "label": "0.8 mps" }
+      ]
+    },
+    {
+      "key": "impact_side",
+      "user_input": false,
+      "value": "LE"
+    },
+    {
+      "key": "overlap",
+      "display_name": "Overlap",
+      "user_input": false,
+      "value": 50
+    },
+    {
+      "key": "target_type",
+      "user_input": true,
+      "default": "NVT",
+      "options": [
+        { "value": "NVT", "label": "NVT" },
+        { "value": "GVT", "label": "GVT" },
+        { "value": "EMT", "label": "EMT" }
+      ]
+    },
+    {
+      "key": "target_speed",
+      "user_input": true,
+      "default": 13.89,
+      "options": [
+        { "value": 16.67, "label": "60 kph" },
+        { "value": 19.44, "label": "70 kph" },
+        { "value": 22.22, "label": "80 kph" },
+        { "value": 25.0, "label": "90 kph" },
+        { "value": 27.78, "label": "100 kph" },
+        { "value": 30.56, "label": "110 kph" },
+        { "value": 33.33, "label": "120 kph" },
+        { "value": 36.11, "label": "130 kph" },
+        { "value": 38.89, "label": "140 kph" }
+      ]
+    },
+    {
+      "key": "target_acceleration",
+      "user_input": false,
+      "value": 0.0
+    },
+    {
+      "key": "target_heading",
+      "user_input": false,
+      "value": 360.0
+    }
+  ]
+}

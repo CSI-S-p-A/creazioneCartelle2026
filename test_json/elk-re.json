@@ -1,0 +1,74 @@
+{
+  "name": "ELK-RE",
+  "test_variables": [
+    {
+      "key": "test_type",
+      "user_input": false,
+      "value": "LSS"
+    },
+    {
+      "key": "test_condition",
+      "user_input": false,
+      "value": "N/A"
+    },
+    {
+      "key": "long_speed_VUT",
+      "display_name": "VUT Speed",
+      "user_input": true,
+      "default": 13.89,
+      "options": [
+        { "value": 13.89, "label": "50 kph" },
+        { "value": 16.67, "label": "60 kph" },
+        { "value": 19.44, "label": "70 kph" },
+        { "value": 22.22, "label": "80 kph" },
+        { "value": 25.0, "label": "90 kph" },
+        { "value": 27.78, "label": "100 kph" }
+      ]
+    },
+    {
+      "key": "lat_speed_VUT",
+      "display_name": "Lateral Speed",
+      "user_input": true,
+      "default": 0.2,
+      "options": [
+        { "value": 0.2, "label": "0.2 mps" },
+        { "value": 0.3, "label": "0.3 mps" },
+        { "value": 0.4, "label": "0.4 mps" },
+        { "value": 0.5, "label": "0.5 mps" },
+        { "value": 0.6, "label": "0.6 mps" },
+        { "value": 0.7, "label": "0.7 mps" }
+      ]
+    },
+    {
+      "key": "impact_side",
+      "user_input": false,
+      "value": ""
+    },
+    {
+      "key": "overlap",
+      "display_name": "Overlap",
+      "user_input": false,
+      "value": ""
+    },
+    {
+      "key": "target_type",
+      "user_input": false,
+      "value": "NVT"
+    },
+    {
+      "key": "target_speed",
+      "user_input": false,
+      "value": ""
+    },
+    {
+      "key": "target_acceleration",
+      "user_input": false,
+      "value": ""
+    },
+    {
+      "key": "target_heading",
+      "user_input": false,
+      "value": ""
+    }
+  ]
+}
