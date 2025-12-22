@@ -112,15 +112,11 @@ def mme_processor(test, dimentions: CarDimensions, info: CarInfo):
 
     output.append(left_profile)
 
-<<<<<<< HEAD
     # TODO update the
     # speed
     # acceleration
     # overlap
     # relative to the robustness layer
-=======
-    # TODO update the speed relative to the robustness layer maybe
->>>>>>> refs/remotes/origin/master
 
     output.append("Velocity longitudinal TOB 1:\t" + str(test["long_speed_VUT"]))
     output.append("Velocity lateral TOB 1:\t" + str(test["lat_speed_VUT"]))
