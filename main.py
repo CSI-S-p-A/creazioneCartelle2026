@@ -113,7 +113,9 @@ class MainWindow(QMainWindow):
         if hasattr(self, "test_window"):
             self.test_window.close()
 
-        self.test_window = TestSpecWindow(spec, self.database_robustness, self)
+        self.test_window = TestSpecWindow(
+            spec, self.database_robustness, self.ui.combo_test_type.currentText(), self
+        )
 
         self.test_window.test_created.connect(self.on_test_created)
         self.test_window.exec()
@@ -182,6 +184,7 @@ class MainWindow(QMainWindow):
             file_folder_manager.folder_creations(
                 main_folder, test_list, self.loadDimensions(), self.loadInfo()
             )
+            print("All Done!")
 
     def loadDimensions(self) -> CarDimensions:
         profile = CarProfile()
@@ -220,10 +223,13 @@ class MainWindow(QMainWindow):
 class TestSpecWindow(QDialog):
     test_created = Signal(dict)
 
-    def __init__(self, test_spec: dict, robustness_spec: dict, parent=None):
+    def __init__(
+        self, test_spec: dict, robustness_spec: dict, macro_type: str, parent=None
+    ):
         super().__init__(parent)
         self.test_spec = test_spec
         self.robustness_spec = robustness_spec
+        self.macro_type = macro_type
 
         self.setWindowTitle(test_spec["name"])
         self._build_ui()
@@ -254,6 +260,7 @@ class TestSpecWindow(QDialog):
         robustness_layout = QFormLayout(self.robustness_widget)
 
         self.fixed_parameters = {"name": self.test_spec["name"]}
+        self.fixed_parameters["macro_type"] = self.macro_type
 
         for parameter in self.test_spec["test_variables"]:
             if parameter["user_input"]:
