@@ -5,11 +5,7 @@
       "key": "test_type",
       "display_name": "Test Type",
       "user_input": false,
-      "default": "AEB",
-      "options": [
-        { "value": "AEB", "label": "AEB" },
-        { "value": "FCW", "label": "FCW" }
-      ]
+      "value": "AEB"
     },
     {
       "key": "test_condition",
@@ -22,18 +18,14 @@
       "user_input": true,
       "default": 5.56,
       "options": [
+        { "value": 0.0, "label": "SfS" },
         { "value": 5.56, "label": "20 kph" },
         { "value": 8.33, "label": "30 kph" },
         { "value": 11.11, "label": "40 kph" },
         { "value": 13.89, "label": "50 kph" },
         { "value": 16.67, "label": "60 kph" },
         { "value": 19.44, "label": "70 kph" },
-        { "value": 22.22, "label": "80 kph" },
-        { "value": 25.0, "label": "90 kph" },
-        { "value": 27.78, "label": "100 kph" },
-        { "value": 30.56, "label": "110 kph" },
-        { "value": 33.33, "label": "120 kph" },
-        { "value": 36.11, "label": "130 kph" }
+        { "value": 22.22, "label": "80 kph" }
       ]
     },
     {
@@ -48,14 +40,13 @@
     },
     {
       "key": "overlap",
-      "display_name": "Overlap",
       "user_input": false,
       "value": 50
     },
     {
       "key": "target_type",
       "user_input": false,
-      "value": "VUT"
+      "value": "GVT"
     },
     {
       "key": "target_speed",

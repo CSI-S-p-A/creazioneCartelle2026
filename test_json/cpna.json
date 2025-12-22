@@ -8,6 +8,7 @@
     },
     {
       "key": "test_condition",
+      "display_name": "Test Condition",
       "user_input": true,
       "default": "D",
       "options": [

@@ -1,0 +1,94 @@
+{
+  "name": "CBDA",
+  "test_variables": [
+    {
+      "key": "test_type",
+      "display_name": "Test Type",
+      "user_input": true,
+      "default": "i",
+      "options": [
+        { "value": "i", "label": "Information" },
+        { "value": "w", "label": "Warning" },
+        { "value": "r", "label": "Retention" }
+      ]
+    },
+    {
+      "key": "test_condition",
+      "user_input": false,
+      "value": "N/A"
+    },
+    {
+      "key": "long_speed_VUT",
+      "user_input": false,
+      "value": 0.0
+    },
+    {
+      "key": "lat_speed_VUT",
+      "user_input": false,
+      "value": 0.0
+    },
+    {
+      "key": "impact_side",
+      "display_name": "Door Side",
+      "user_input": true,
+      "default": "LE",
+      "options": [
+        { "value": "LE", "label": "Left" },
+        { "value": "RI", "label": "Right" }
+      ]
+    },
+    {
+      "key": "door_position",
+      "display_name": "Door Position",
+      "user_input": true,
+      "default": "FR",
+      "options": [
+        { "value": "FR", "label": "Front" },
+        { "value": "RE", "label": "Rear" }
+      ]
+    },
+    {
+      "key": "overlap",
+      "user_input": false,
+      "value": 50
+    },
+    {
+      "key": "target_type",
+      "user_input": false,
+      "value": "EBT"
+    },
+    {
+      "key": "target_speed",
+      "display_name": "Target Speed",
+      "user_input": true,
+      "default": 2.78,
+      "options": [
+        { "value": 2.78, "label": "10 kph" },
+        { "value": 4.17, "label": "15 kph" },
+        { "value": 5.56, "label": "20 kph" }
+      ]
+    },
+    {
+      "key": "target_acceleration",
+      "user_input": false,
+      "value": 0.0
+    },
+    {
+      "key": "target_heading",
+      "user_input": false,
+      "value": 360.0
+    },
+    {
+      "key": "rear_gap",
+      "display_name": "Rear Gap",
+      "user_input": true,
+      "default": 0.5,
+      "options": [
+        { "value": 0.5, "label": "0.5 m" },
+        { "value": 1.0, "label": "1.0 m" },
+        { "value": 1.5, "label": "1.5 m" },
+        { "value": 2.0, "label": "2.0 m" }
+      ]
+    }
+  ]
+}

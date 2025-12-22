@@ -8,8 +8,13 @@
     },
     {
       "key": "test_condition",
-      "user_input": false,
-      "value": "N/A"
+      "display_name": "Direction",
+      "user_input": true,
+      "default": "P",
+      "options": [
+        { "value": "P", "label": "Right" },
+        { "value": "D", "label": "Left" }
+      ]
     },
     {
       "key": "long_speed_VUT",

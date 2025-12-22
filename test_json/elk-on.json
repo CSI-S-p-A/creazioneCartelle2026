@@ -3,13 +3,8 @@
   "test_variables": [
     {
       "key": "test_type",
-      "display_name": "Test Type",
-      "user_input": true,
-      "default": "LSS",
-      "options": [
-        { "value": "LSS", "label": "LSS" },
-        { "value": "ESS", "label": "ESS" }
-      ]
+      "user_input": false,
+      "value": "LSS"
     },
     {
       "key": "test_condition",
@@ -57,6 +52,7 @@
     },
     {
       "key": "target_type",
+      "display_name": "Target Type",
       "user_input": true,
       "default": "NVT",
       "options": [
@@ -67,9 +63,11 @@
     },
     {
       "key": "target_speed",
+      "display_name": "Target Speed",
       "user_input": true,
-      "default": 13.89,
+      "default": "",
       "options": [
+        { "value": "", "label": "NVT" },
         { "value": 13.89, "label": "50 kph" },
         { "value": 16.67, "label": "60 kph" },
         { "value": 19.44, "label": "70 kph" },

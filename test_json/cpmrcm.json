@@ -1,5 +1,5 @@
 {
-  "name": "CCFtap",
+  "name": "CPMRCm",
   "test_variables": [
     {
       "key": "test_type",
@@ -13,16 +13,8 @@
     },
     {
       "key": "long_speed_VUT",
-      "display_name": "VUT Speed",
-      "user_input": true,
-      "default": 2.78,
-      "options": [
-        { "value": 0.0, "label": "SfS" },
-        { "value": 2.78, "label": "10 kph" },
-        { "value": 4.17, "label": "15 kph" },
-        { "value": 5.56, "label": "20 kph" },
-        { "value": 6.94, "label": "25 kph" }
-      ]
+      "user_input": false,
+      "value": 0.0
     },
     {
       "key": "lat_speed_VUT",
@@ -32,7 +24,7 @@
     {
       "key": "impact_side",
       "user_input": false,
-      "value": "FR"
+      "value": "RE"
     },
     {
       "key": "overlap",
@@ -43,21 +35,16 @@
     {
       "key": "target_type",
       "user_input": false,
-      "value": "GVT"
+      "value": "PEDc"
     },
     {
       "key": "target_speed",
       "display_name": "Target Speed",
       "user_input": true,
-      "default": 13.89,
+      "default": 1.39,
       "options": [
-        { "value": 5.56, "label": "20 kph" },
-        { "value": 8.33, "label": "30 kph" },
-        { "value": 11.11, "label": "40 kph" },
-        { "value": 13.89, "label": "50 kph" },
-        { "value": 16.67, "label": "60 kph" },
-        { "value": 19.44, "label": "70 kph" },
-        { "value": 22.22, "label": "80 kph" }
+        { "value": 1.39, "label": "5 kph" },
+        { "value": 2.22, "label": "8 kph" }
       ]
     },
     {
@@ -68,7 +55,18 @@
     {
       "key": "target_heading",
       "user_input": false,
-      "value": 180.0
+      "value": 90.0
+    },
+    {
+      "key": "rear_gap",
+      "display_name": "Rear Gap",
+      "user_input": true,
+      "default": 1.0,
+      "options": [
+        { "value": 1.0, "label": "1.0 m" },
+        { "value": 1.5, "label": "1.5 m" },
+        { "value": 2.0, "label": "2.0 m" }
+      ]
     }
   ]
 }
