@@ -196,13 +196,13 @@ class MainWindow(QMainWindow):
                 x_text = getattr(self.ui, f"x{i}{section.capitalize()}")
                 y_text = getattr(self.ui, f"y{i}{section.capitalize()}")
 
-                x = float(x_text.text().strip())
-                y = float(y_text.text().strip())
+                x = float(x_text.text().strip()) * 1000.0
+                y = float(y_text.text().strip()) * 1000.0
                 getattr(profile, section).append(Point(x, y))
 
         output = CarDimensions(
-            length=float(self.ui.textLenght.text().strip()),
-            width=float(self.ui.textWidth.text().strip()),
+            length=float(self.ui.textLenght.text().strip()) * 1000.0,
+            width=float(self.ui.textWidth.text().strip()) * 1000.0,
             profile=profile,
         )
 
