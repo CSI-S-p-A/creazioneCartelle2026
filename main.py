@@ -158,8 +158,8 @@ class MainWindow(QMainWindow):
         )
         table.setColumnWidth(max_cols - 1, 30)
 
-        print("-----------------------------------------------------------------")
-        pprint(test_list)
+        # print("-----------------------------------------------------------------")
+        # pprint(test_list)
 
     def delete_test(self, button: QPushButton):
         table = self.ui.tableWidget
@@ -184,7 +184,7 @@ class MainWindow(QMainWindow):
             file_folder_manager.folder_creations(
                 main_folder, test_list, self.loadDimensions(), self.loadInfo()
             )
-            print("All Done!")
+            QMessageBox.information(self, "Completed.", "The folders were created.")
 
     def loadDimensions(self) -> CarDimensions:
         profile = CarProfile()

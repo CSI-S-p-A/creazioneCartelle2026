@@ -39,7 +39,7 @@
               "label": "5 kph"
             },
             {
-              "value": 5.0,
+              "value": -5.0,
               "label": "-5 kph"
             }
           ]
