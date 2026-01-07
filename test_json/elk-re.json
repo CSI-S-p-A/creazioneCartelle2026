@@ -20,14 +20,14 @@
       "key": "long_speed_VUT",
       "display_name": "VUT Speed",
       "user_input": true,
-      "default": 13.89,
+      "default": 50.0,
       "options": [
-        { "value": 13.89, "label": "50 kph" },
-        { "value": 16.67, "label": "60 kph" },
-        { "value": 19.44, "label": "70 kph" },
-        { "value": 22.22, "label": "80 kph" },
-        { "value": 25.0, "label": "90 kph" },
-        { "value": 27.78, "label": "100 kph" }
+        { "value": 50.0, "label": "50 kph" },
+        { "value": 60.0, "label": "60 kph" },
+        { "value": 70.0, "label": "70 kph" },
+        { "value": 80.0, "label": "80 kph" },
+        { "value": 90.0, "label": "90 kph" },
+        { "value": 100.0, "label": "100 kph" }
       ]
     },
     {
@@ -47,13 +47,13 @@
     {
       "key": "impact_side",
       "user_input": false,
-      "value": ""
+      "value": "NOVALUE"
     },
     {
       "key": "overlap",
       "display_name": "Overlap",
       "user_input": false,
-      "value": ""
+      "value": "NOVALUE"
     },
     {
       "key": "target_type",
@@ -63,17 +63,17 @@
     {
       "key": "target_speed",
       "user_input": false,
-      "value": ""
+      "value": "NOVALUE"
     },
     {
       "key": "target_acceleration",
       "user_input": false,
-      "value": ""
+      "value": "NOVALUE"
     },
     {
       "key": "target_heading",
       "user_input": false,
-      "value": ""
+      "value": "NOVALUE"
     }
   ]
 }

@@ -60,11 +60,11 @@
     {
       "key": "target_heading",
       "display_name": "Heading",
-      "default": 90,
+      "default": -90.0,
       "user_input": true,
       "options": [
-        { "value": 90, "label": "Left" },
-        { "value": 270, "label": "Right" }
+        { "value": -90.0, "label": "Left" },
+        { "value": 90.0, "label": "Right" }
       ]
     }
   ]

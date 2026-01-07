@@ -9,25 +9,25 @@
     {
       "key": "test_condition",
       "user_input": false,
-      "value": "N/A"
+      "value": "NOVALUE"
     },
     {
       "key": "long_speed_VUT",
       "display_name": "VUT Speed",
       "user_input": true,
-      "default": 2.78,
+      "default": 30.0,
       "options": [
-        { "value": 8.33, "label": "30 kph" },
-        { "value": 11.11, "label": "40 kph" },
-        { "value": 13.89, "label": "50 kph" },
-        { "value": 16.67, "label": "60 kph" },
-        { "value": 19.44, "label": "70 kph" },
-        { "value": 22.22, "label": "80 kph" },
-        { "value": 25.0, "label": "90 kph" },
-        { "value": 27.78, "label": "100 kph" },
-        { "value": 30.56, "label": "110 kph" },
-        { "value": 33.33, "label": "120 kph" },
-        { "value": 36.11, "label": "130 kph" }
+        { "value": 30.0, "label": "30 kph" },
+        { "value": 40.0, "label": "40 kph" },
+        { "value": 50.0, "label": "50 kph" },
+        { "value": 60.0, "label": "60 kph" },
+        { "value": 70.0, "label": "70 kph" },
+        { "value": 80.0, "label": "80 kph" },
+        { "value": 90.0, "label": "90 kph" },
+        { "value": 100.0, "label": "100 kph" },
+        { "value": 110.0, "label": "110 kph" },
+        { "value": 120.0, "label": "120 kph" },
+        { "value": 130.0, "label": "130 kph" }
       ]
     },
     {
@@ -64,14 +64,14 @@
       "key": "target_speed",
       "display_name": "Target Speed",
       "user_input": true,
-      "default": 5.56,
+      "default": 20.0,
       "options": [
-        { "value": 5.56, "label": "20 kph" },
-        { "value": 8.33, "label": "30 kph" },
-        { "value": 11.11, "label": "40 kph" },
-        { "value": 13.89, "label": "50 kph" },
-        { "value": 16.67, "label": "60 kph" },
-        { "value": 19.44, "label": "70 kph" }
+        { "value": 20.0, "label": "20 kph" },
+        { "value": 30.0, "label": "30 kph" },
+        { "value": 40.0, "label": "40 kph" },
+        { "value": 50.0, "label": "50 kph" },
+        { "value": 60.0, "label": "60 kph" },
+        { "value": 70.0, "label": "70 kph" }
       ]
     },
     {
@@ -82,7 +82,7 @@
     {
       "key": "target_heading",
       "user_input": false,
-      "value": 360.0
+      "value": 0.0
     }
   ]
 }

@@ -20,14 +20,14 @@
       "key": "long_speed_VUT",
       "display_name": "VUT Speed",
       "user_input": true,
-      "default": 2.78,
+      "default": 10.0,
       "options": [
-        { "value": 2.78, "label": "10 kph" },
-        { "value": 5.56, "label": "20 kph" },
-        { "value": 8.33, "label": "30 kph" },
-        { "value": 11.11, "label": "40 kph" },
-        { "value": 13.89, "label": "50 kph" },
-        { "value": 16.67, "label": "60 kph" }
+        { "value": 10.0, "label": "10 kph" },
+        { "value": 20.0, "label": "20 kph" },
+        { "value": 30.0, "label": "30 kph" },
+        { "value": 40.0, "label": "40 kph" },
+        { "value": 50.0, "label": "50 kph" },
+        { "value": 60.0, "label": "60 kph" }
       ]
     },
     {
@@ -63,7 +63,7 @@
     {
       "key": "target_speed",
       "user_input": false,
-      "value": 2.22
+      "value": 8.0
     },
     {
       "key": "target_acceleration",
@@ -73,7 +73,7 @@
     {
       "key": "target_heading",
       "user_input": false,
-      "value": 90.0
+      "value": -90.0
     }
   ]
 }

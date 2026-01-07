@@ -15,7 +15,7 @@
     {
       "key": "test_condition",
       "user_input": false,
-      "value": "N/A"
+      "value": "NOVALUE"
     },
     {
       "key": "long_speed_VUT",
@@ -61,11 +61,11 @@
       "key": "target_speed",
       "display_name": "Target Speed",
       "user_input": true,
-      "default": 2.78,
+      "default": 10,
       "options": [
-        { "value": 2.78, "label": "10 kph" },
-        { "value": 4.17, "label": "15 kph" },
-        { "value": 5.56, "label": "20 kph" }
+        { "value": 10, "label": "10 kph" },
+        { "value": 15, "label": "15 kph" },
+        { "value": 20, "label": "20 kph" }
       ]
     },
     {
@@ -76,7 +76,7 @@
     {
       "key": "target_heading",
       "user_input": false,
-      "value": 360.0
+      "value": 0.0
     },
     {
       "key": "rear_gap",

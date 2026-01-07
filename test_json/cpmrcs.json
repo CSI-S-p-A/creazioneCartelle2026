@@ -9,16 +9,16 @@
     {
       "key": "test_condition",
       "user_input": false,
-      "value": "N/A"
+      "value": "NOVALUE"
     },
     {
       "key": "long_speed_VUT",
       "display_name": "VUT Speed",
       "user_input": true,
-      "default": 1.11,
+      "default": 4.0,
       "options": [
-        { "value": 1.11, "label": "4 kph" },
-        { "value": 2.22, "label": "8 kph" }
+        { "value": 4.0, "label": "4 kph" },
+        { "value": 8.0, "label": "8 kph" }
       ]
     },
     {
@@ -59,8 +59,13 @@
     },
     {
       "key": "target_heading",
-      "user_input": false,
-      "value": 90.0
+      "display_name": "Heading",
+      "default": -90.0,
+      "user_input": true,
+      "options": [
+        { "value": -90.0, "label": "Left" },
+        { "value": 90.0, "label": "Right" }
+      ]
     }
   ]
 }
