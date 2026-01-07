@@ -4,7 +4,8 @@ from pathlib import Path
 from pprint import pprint
 from typing import List
 
-from PySide6.QtCore import Signal
+from PySide6.QtCore import QLocale, Signal
+from PySide6.QtGui import QDoubleValidator
 from PySide6.QtWidgets import (
     QApplication,
     QComboBox,
@@ -13,6 +14,7 @@ from PySide6.QtWidgets import (
     QFormLayout,
     QHBoxLayout,
     QHeaderView,
+    QLineEdit,
     QMainWindow,
     QMessageBox,
     QPushButton,
@@ -85,6 +87,7 @@ class MainWindow(QMainWindow):
         table.setEditTriggers(QTableWidget.EditTrigger.AllEditTriggers.NoEditTriggers)
         table.horizontalHeader().setVisible(False)
         table.verticalHeader().setVisible(False)
+        self.apply_float_validators()
 
         self.database_test_specs = test_json_loading(Path("test_json"))
 
@@ -173,6 +176,13 @@ class MainWindow(QMainWindow):
         self.refresh_table()
 
     def create_folder_press(self):
+        for text_box in self.findChildren(QLineEdit):
+            if text_box.text() == "":
+                QMessageBox.warning(
+                    self, "Warning", "Some veichle information is missing."
+                )
+                return
+
         main_folder_string = QFileDialog.getExistingDirectory(
             None, "Select where you want the folder to be created: "
         )
@@ -218,6 +228,13 @@ class MainWindow(QMainWindow):
             sw_version=self.ui.textbox_software.text().strip(),
         )
         return output
+
+    def apply_float_validators(self):
+        validator = QDoubleValidator(0, 100, 2)
+        validator.setLocale(QLocale(QLocale.Language.English))
+
+        for dimenstion_text_boxes in self.ui.tab_dimensions.findChildren(QLineEdit):
+            dimenstion_text_boxes.setValidator(validator)
 
 
 class TestSpecWindow(QDialog):
