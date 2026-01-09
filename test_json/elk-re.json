@@ -4,17 +4,13 @@
     {
       "key": "test_type",
       "user_input": false,
-      "value": "LSS"
+      "value": "NOVALUE"
     },
     {
       "key": "test_condition",
       "display_name": "Direction",
-      "user_input": true,
-      "default": "P",
-      "options": [
-        { "value": "P", "label": "Right" },
-        { "value": "D", "label": "Left" }
-      ]
+      "user_input": false,
+      "value": "NOVALUE"
     },
     {
       "key": "long_speed_VUT",
@@ -58,7 +54,7 @@
     {
       "key": "target_type",
       "user_input": false,
-      "value": "NVT"
+      "value": "NOVALUE"
     },
     {
       "key": "target_speed",

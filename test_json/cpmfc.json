@@ -4,7 +4,7 @@
     {
       "key": "test_type",
       "user_input": false,
-      "value": "AEB"
+      "value": "NOVALUE"
     },
     {
       "key": "test_condition",
@@ -45,7 +45,7 @@
     {
       "key": "target_type",
       "user_input": false,
-      "value": "PEDc"
+      "value": "EPTc"
     },
     {
       "key": "target_speed",

@@ -58,7 +58,7 @@
     {
       "key": "target_type",
       "user_input": false,
-      "value": "EBT"
+      "value": "EBTa"
     },
     {
       "key": "target_speed",
@@ -72,8 +72,13 @@
     },
     {
       "key": "target_heading",
-      "user_input": false,
-      "value": -180.0
+      "display_name": "Target Direction",
+      "user_input": true,
+      "default": 180.0,
+      "options": [
+        { "value": 180.0, "label": "Opposite" },
+        { "value": 0.0, "label": "Same" }
+      ]
     }
   ]
 }

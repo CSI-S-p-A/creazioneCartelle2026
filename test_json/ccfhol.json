@@ -3,8 +3,13 @@
   "test_variables": [
     {
       "key": "test_type",
-      "user_input": false,
-      "value": "AEB"
+      "display_name": "Test Type",
+      "user_input": true,
+      "default": "AEB",
+      "options": [
+        { "value": "AEB", "label": "AEB" },
+        { "value": "AES", "label": "AES" }
+      ]
     },
     {
       "key": "test_condition",

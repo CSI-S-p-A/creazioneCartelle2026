@@ -16,8 +16,11 @@ def folder_creations(
     for test in test_list:
         test_name = f"{info.number}"
 
-        for items in test["_ui"]["columns"]:
-            test_name = f"{test_name}-{sanitize_folder_name(items[1], '')}"
+        for item in test["_ui"]["columns"]:
+            if item[1] == "N/A":
+                continue
+
+            test_name = f"{test_name}-{sanitize_folder_name(item[1], '')}"
 
         test_folder = main_folder / f"{folder_prefix}-{test['macro_type']}" / test_name
         test_folder = create_unique_folder(test_folder)
@@ -49,12 +52,21 @@ def create_unique_folder(folder_name: Path) -> Path:
 
 
 def sanitize_folder_name(name: str, replacement="_") -> str:
-    # Keep letters, numbers, spaces, dashes and underscores
+    # Removes strange characters from the name that could lead to problems
+    # when creating a folder
     name = re.sub(r"[^a-zA-Z0-9_-]", replacement, name)
     return name.strip()
 
 
 def mme_processor(test, dimentions: CarDimensions, info: CarInfo):
+    # TODO
+    # the main thing missing right now is a way to have the
+    # info about the target and the impact (like impact location)
+    # to be removed just in the case of a NVT ELK OV, right now the only fast solution
+    # would be to just include the "NVT" option to basically all the parameters in the
+    # selection of the test.
+    # Better approaches are for sure possibile but I dont have time to think and test
+    # them.
     output = [
         "Data format edition number:\t1.6",
         "Laboratory name:\tCSI S.p.A.",
@@ -65,16 +77,20 @@ def mme_processor(test, dimentions: CarDimensions, info: CarInfo):
     output.append("Title:\t	Euro NCAP " + info.year)
     current_date = datetime.now().strftime("%Y/%m/%d,%H:%M")
     output.append("Timestamp:\t" + current_date)
-    output.append("Scenario:\t" + test["name"])
-    output.append("Type of the test:\t" + test["test_type"])
-    output.append("Subtype of the test:\t" + test["test_condition"])
+
+    output.append("Scenario:\t" + test.get("name", "NOVALUE"))
+    output.append("Type of the test:\t" + test.get("test_type", "NOVALUE"))
+    output.append("Subtype of the test:\t" + test.get("test_condition", "NOVALUE"))
     output.append("Region:\tEU")
-    # todo robustness
-    robustness = test["robustness_type"]
-    if "robustness_layer" in test:
-        robustness += ";" + test["robustness_layer"]
-        if "robustness_parameter" in test:
-            robustness += ";" + str(test["robustness_parameter"])
+
+    robustness = test.get("robustness_type", "NOVALUE")
+    robustness_layer = test.get("robustness_layer")
+    if robustness_layer is not None:
+        robustness += ";" + str(robustness_layer)
+
+        robustness_parameter = test.get("robustness_parameter")
+        if robustness_parameter is not None:
+            robustness += ";" + str(robustness_parameter)
 
     output.append("Robustness Layer:\t" + robustness)
 
@@ -89,37 +105,36 @@ def mme_processor(test, dimentions: CarDimensions, info: CarInfo):
     )
 
     front_points_str = ", ".join(f"({p.x};{p.y})" for p in dimentions.profile.front)
-    front_profile = f"Shape Front TOB 1:\t{front_points_str}"
-    output.append(front_profile)
+    output.append(f"Shape Front TOB 1:\t{front_points_str}")
 
     left_points_str = ", ".join(f"({p.x};{p.y})" for p in dimentions.profile.side)
-    left_profile = f"Shape Left Side TOB 1:\t{left_points_str}"
-    output.append(left_profile)
+    output.append(f"Shape Left Side TOB 1:\t{left_points_str}")
 
     rear_points_str = ", ".join(f"({p.x};{p.y})" for p in dimentions.profile.back)
-    rear_profile = f"Shape Rear TOB 1:\t{rear_points_str}"
-    output.append(rear_profile)
+    output.append(f"Shape Rear TOB 1:\t{rear_points_str}")
 
     right_points_str = ", ".join(f"({p.x};{p.y})" for p in dimentions.profile.side)
-    right_profile = f"Shape Right Side TOB 1:\t{right_points_str}"
-    output.append(right_profile)
+    output.append(f"Shape Right Side TOB 1:\t{right_points_str}")
 
     output.append("Front overhang TOB 1:\t" + str(dimentions.overhang))
-    output.append("Velocity longitudinal TOB 1:\t" + str(test["long_speed_VUT"]))
-    output.append("Lane Departure Velocity TOB 1:\t" + str(test["lat_speed_VUT"]))
+    output.append(
+        "Velocity longitudinal TOB 1:\t" + str(test.get("long_speed_VUT", "NOVALUE"))
+    )
+    output.append(
+        "Lane Departure Velocity TOB 1:\t" + str(test.get("lat_speed_VUT", "NOVALUE"))
+    )
 
-    output.append("Impact side TOB 1:\t" + str(test["lat_speed_VUT"]))
-    output.append("Impact location TOB 1:\t" + str(test["overlap"]))
+    output.append("Impact side TOB 1:\t" + str(test.get("lat_speed_VUT", "NOVALUE")))
+    output.append("Impact location TOB 1:\t" + str(test.get("overlap", "NOVALUE")))
 
-    # TODO in general  it could be "attentive" or "inattentive", probably for intervention
-    # tests, idk how to handle it now but it should be easy, just add it in the .json of
-    # the tests that could be an intervention or add it
     output.append("Driver State TOB 1:\tNOVALUE")
 
-    output.append("Name TOB 2:\t" + test["target_type"])
-    output.append("Velocity TOB 2:\t" + str(test["target_speed"]))
-    output.append("Acceleration TOB 2:\t" + str(test["target_acceleration"]))
-    output.append("Heading TOB 2:\t" + str(test["target_heading"]))
+    output.append("Name TOB 2:\t" + test.get("target_type", "NOVALUE"))
+    output.append("Velocity TOB 2:\t" + str(test.get("target_speed", "NOVALUE")))
+    output.append(
+        "Acceleration TOB 2:\t" + str(test.get("target_acceleration", "NOVALUE"))
+    )
+    output.append("Heading TOB 2:\t" + str(test.get("target_heading", "NOVALUE")))
 
     output.append("Type of data source:\tPhysical Test")
 

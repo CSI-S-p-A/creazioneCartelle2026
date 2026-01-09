@@ -4,12 +4,18 @@
     {
       "key": "test_type",
       "user_input": false,
-      "value": "AEB"
+      "value": "NOVALUE"
     },
     {
       "key": "test_condition",
-      "user_input": false,
-      "value": "NOVALUE"
+      "display_name": "Rear Gap",
+      "user_input": true,
+      "default": "L2",
+      "options": [
+        { "value": "L2", "label": "1.0 m" },
+        { "value": "L3", "label": "1.5 m" },
+        { "value": "L4", "label": "2.0 m" }
+      ]
     },
     {
       "key": "long_speed_VUT",
@@ -35,7 +41,7 @@
     {
       "key": "target_type",
       "user_input": false,
-      "value": "PEDc"
+      "value": "EPTc"
     },
     {
       "key": "target_speed",
@@ -60,17 +66,6 @@
       "options": [
         { "value": -90.0, "label": "Left" },
         { "value": 90.0, "label": "Right" }
-      ]
-    },
-    {
-      "key": "rear_gap",
-      "display_name": "Rear Gap",
-      "user_input": true,
-      "default": 1.0,
-      "options": [
-        { "value": 1.0, "label": "1.0 m" },
-        { "value": 1.5, "label": "1.5 m" },
-        { "value": 2.0, "label": "2.0 m" }
       ]
     }
   ]

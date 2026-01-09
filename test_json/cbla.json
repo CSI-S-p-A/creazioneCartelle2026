@@ -8,7 +8,8 @@
       "default": "AEB",
       "options": [
         { "value": "AEB", "label": "AEB" },
-        { "value": "FCW", "label": "FCW" }
+        { "value": "FCW", "label": "FCW" },
+        { "value": "ESS", "label": "ESS" }
       ]
     },
     {
@@ -60,7 +61,7 @@
     {
       "key": "target_type",
       "user_input": false,
-      "value": "EBT"
+      "value": "EBTa"
     },
     {
       "key": "target_speed",

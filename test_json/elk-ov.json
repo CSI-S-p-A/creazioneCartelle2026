@@ -63,9 +63,8 @@
       "key": "target_type",
       "display_name": "Target Type",
       "user_input": true,
-      "default": "NVT",
+      "default": "GVT",
       "options": [
-        { "value": "NVT", "label": "NVT" },
         { "value": "GVT", "label": "GVT" },
         { "value": "EMT", "label": "EMT" }
       ]
@@ -74,9 +73,8 @@
       "key": "target_speed",
       "display_name": "Target Speed",
       "user_input": true,
-      "default": "NOVALUE",
+      "default": 60.0,
       "options": [
-        { "value": "NOVALUE", "label": "NVT" },
         { "value": 60.0, "label": "60 kph" },
         { "value": 70.0, "label": "70 kph" },
         { "value": 80.0, "label": "80 kph" },

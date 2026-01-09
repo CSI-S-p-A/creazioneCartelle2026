@@ -4,12 +4,12 @@
     {
       "key": "test_type",
       "user_input": false,
-      "value": "LSS"
+      "value": "NOVALUE"
     },
     {
       "key": "test_condition",
       "user_input": false,
-      "value": "N/A"
+      "value": "NOVALUE"
     },
     {
       "key": "long_speed_VUT",
@@ -54,9 +54,9 @@
       "key": "target_type",
       "display_name": "Target Type",
       "user_input": true,
-      "default": "NVT",
+      "default": "NOVALUE",
       "options": [
-        { "value": "NVT", "label": "NVT" },
+        { "value": "NOVALUE", "label": "NVT" },
         { "value": "GVT", "label": "GVT" },
         { "value": "EMT", "label": "EMT" }
       ]
