@@ -1,9 +1,9 @@
 import json
 from dataclasses import dataclass, field
 from pathlib import Path
-from pprint import pprint
 from typing import List
 
+# from pprint import pprint
 from PySide6.QtCore import QLocale, Signal
 from PySide6.QtGui import QDoubleValidator
 from PySide6.QtWidgets import (
@@ -47,6 +47,7 @@ class CarProfile:
 class CarDimensions:
     length: float
     width: float
+    overhang: float
     profile: CarProfile
 
 
@@ -54,7 +55,8 @@ class CarDimensions:
 class CarInfo:
     year: str
     number: str
-    model_name: str
+    make: str
+    model: str
     oem: str
     vin: str
     sw_version: str
@@ -213,6 +215,7 @@ class MainWindow(QMainWindow):
         output = CarDimensions(
             length=float(self.ui.textLenght.text().strip()) * 1000.0,
             width=float(self.ui.textWidth.text().strip()) * 1000.0,
+            overhang=float(self.ui.textOverhang.text().strip()) * 1000.0,
             profile=profile,
         )
 
@@ -222,7 +225,8 @@ class MainWindow(QMainWindow):
         output = CarInfo(
             year=self.ui.textbox_year.text().strip(),
             number=self.ui.textbox_number.text().strip(),
-            model_name=self.ui.textbox_model.text().strip(),
+            make=self.ui.textbox_make.text().strip(),
+            model=self.ui.textbox_model.text().strip(),
             oem=self.ui.textbox_oem.text().strip(),
             vin=self.ui.textbox_vin.text().strip(),
             sw_version=self.ui.textbox_software.text().strip(),

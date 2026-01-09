@@ -10,7 +10,7 @@ def folder_creations(
 ):
     folder_prefix = f"{info.year[-2:]}-{info.oem}-{info.number}"
 
-    main_folder = parent_folder / f"{folder_prefix}-{info.model_name}"
+    main_folder = parent_folder / f"{folder_prefix}-{info.make} {info.model}"
     main_folder.mkdir(exist_ok=True, parents=True)
 
     for test in test_list:
@@ -67,11 +67,7 @@ def mme_processor(test, dimentions: CarDimensions, info: CarInfo):
     output.append("Timestamp:\t" + current_date)
     output.append("Scenario:\t" + test["name"])
     output.append("Type of the test:\t" + test["test_type"])
-    test_condition = test["test_condition"]
-    if test_condition == "N/A":
-        test_condition = ""
-
-    output.append("Condition of test:\t" + test["test_condition"])
+    output.append("Subtype of the test:\t" + test["test_condition"])
     output.append("Region:\tEU")
     # todo robustness
     robustness = test["robustness_type"]
@@ -81,49 +77,50 @@ def mme_processor(test, dimentions: CarDimensions, info: CarInfo):
             robustness += ";" + str(test["robustness_parameter"])
 
     output.append("Robustness Layer:\t" + robustness)
-    output.append("Name of test object 1:\t" + info.model_name)
-    output.append("Driver Position object 1:\t1")
-    output.append("Ref. number of test object 1:\t" + info.vin)
+
+    tob1_name = f"{info.make}, {info.model}"
+    output.append("Name TOB 1:\t" + tob1_name)
+
+    output.append("Driver position TOB 1:\t1")
+    output.append("Ref. number of TOB 1:\t" + info.vin)
     output.append("S/W version of TOB 1:\t" + info.sw_version)
     output.append(
-        "Dimensions of test object 1:\t"
-        + str(dimentions.length)
-        + ","
-        + str(dimentions.width)
+        "Dimensions of TOB 1:\t" + str(dimentions.length) + "," + str(dimentions.width)
     )
 
     front_points_str = ", ".join(f"({p.x};{p.y})" for p in dimentions.profile.front)
     front_profile = f"Shape Front TOB 1:\t{front_points_str}"
-
     output.append(front_profile)
+
+    left_points_str = ", ".join(f"({p.x};{p.y})" for p in dimentions.profile.side)
+    left_profile = f"Shape Left Side TOB 1:\t{left_points_str}"
+    output.append(left_profile)
 
     rear_points_str = ", ".join(f"({p.x};{p.y})" for p in dimentions.profile.back)
     rear_profile = f"Shape Rear TOB 1:\t{rear_points_str}"
-
     output.append(rear_profile)
 
     right_points_str = ", ".join(f"({p.x};{p.y})" for p in dimentions.profile.side)
     right_profile = f"Shape Right Side TOB 1:\t{right_points_str}"
-
     output.append(right_profile)
 
-    left_points_str = ", ".join(f"({p.x};{p.y})" for p in dimentions.profile.side)
-    left_profile = f"Shape Left Side TOB 1:\t{left_points_str}"
-
-    output.append(left_profile)
-
+    output.append("Front overhang TOB 1:\t" + str(dimentions.overhang))
     output.append("Velocity longitudinal TOB 1:\t" + str(test["long_speed_VUT"]))
-    output.append("Velocity lateral TOB 1:\t" + str(test["lat_speed_VUT"]))
+    output.append("Lane Departure Velocity TOB 1:\t" + str(test["lat_speed_VUT"]))
 
     output.append("Impact side TOB 1:\t" + str(test["lat_speed_VUT"]))
-    output.append("Impact location of test object 1:\t" + str(test["overlap"]))
+    output.append("Impact location TOB 1:\t" + str(test["overlap"]))
 
-    output.append("Name of test object 2:\t" + test["target_type"])
+    # TODO in general  it could be "attentive" or "inattentive", probably for intervention
+    # tests, idk how to handle it now but it should be easy, just add it in the .json of
+    # the tests that could be an intervention or add it
+    output.append("Driver State TOB 1:\tNOVALUE")
 
-    output.append("Velocity test object 2:\t" + str(test["target_speed"]))
-    output.append("Acceleration test object 2:\t" + str(test["target_acceleration"]))
+    output.append("Name TOB 2:\t" + test["target_type"])
+    output.append("Velocity TOB 2:\t" + str(test["target_speed"]))
+    output.append("Acceleration TOB 2:\t" + str(test["target_acceleration"]))
+    output.append("Heading TOB 2:\t" + str(test["target_heading"]))
 
-    output.append("Heading test object 2:\t" + str(test["target_heading"]))
-    output.append("Type of data source:\tPhysical_Test")
+    output.append("Type of data source:\tPhysical Test")
 
     return output

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>971</width>
-    <height>828</height>
+    <width>967</width>
+    <height>820</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -542,6 +542,32 @@
          </item>
         </layout>
        </widget>
+       <widget class="QLineEdit" name="textOverhang">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>213</y>
+          <width>79</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>0.00</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_25">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>190</y>
+          <width>79</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Overhang:</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="tab_specifications">
        <attribute name="title">
@@ -646,7 +672,37 @@
                </font>
               </property>
               <property name="text">
-               <string>Model Name</string>
+               <string>Make</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="textbox_make">
+              <property name="minimumSize">
+               <size>
+                <width>250</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>16</pointsize>
+               </font>
+              </property>
+              <property name="placeholderText">
+               <string>Toyota</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_24">
+              <property name="font">
+               <font>
+                <pointsize>16</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Model</string>
               </property>
              </widget>
             </item>
@@ -664,7 +720,7 @@
                </font>
               </property>
               <property name="placeholderText">
-               <string>Toyota Yaris</string>
+               <string>Yaris</string>
               </property>
              </widget>
             </item>
@@ -942,33 +998,6 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
-  <tabstop>x1Front</tabstop>
-  <tabstop>x2Front</tabstop>
-  <tabstop>x3Front</tabstop>
-  <tabstop>x4Front</tabstop>
-  <tabstop>x5Front</tabstop>
-  <tabstop>x6Front</tabstop>
-  <tabstop>x7Front</tabstop>
-  <tabstop>y1Front</tabstop>
-  <tabstop>y2Front</tabstop>
-  <tabstop>y3Front</tabstop>
-  <tabstop>y4Front</tabstop>
-  <tabstop>y5Front</tabstop>
-  <tabstop>y6Front</tabstop>
-  <tabstop>y7Front</tabstop>
-  <tabstop>x1Side</tabstop>
-  <tabstop>y1Side</tabstop>
-  <tabstop>x2Side</tabstop>
-  <tabstop>y2Side</tabstop>
-  <tabstop>x3Side</tabstop>
-  <tabstop>y3Side</tabstop>
-  <tabstop>x4Side</tabstop>
-  <tabstop>y4Side</tabstop>
-  <tabstop>x5Side</tabstop>
-  <tabstop>y5Side</tabstop>
-  <tabstop>x6Side</tabstop>
-  <tabstop>y6Side</tabstop>
-  <tabstop>x7Side</tabstop>
   <tabstop>y7Side</tabstop>
   <tabstop>x1Back</tabstop>
   <tabstop>x2Back</tabstop>
@@ -984,11 +1013,10 @@
   <tabstop>y5Back</tabstop>
   <tabstop>y6Back</tabstop>
   <tabstop>y7Back</tabstop>
-  <tabstop>textLenght</tabstop>
   <tabstop>textWidth</tabstop>
-  <tabstop>combo_test_name</tabstop>
   <tabstop>textbox_year</tabstop>
   <tabstop>textbox_number</tabstop>
+  <tabstop>textbox_make</tabstop>
   <tabstop>textbox_model</tabstop>
   <tabstop>textbox_oem</tabstop>
   <tabstop>textbox_vin</tabstop>
@@ -997,10 +1025,46 @@
   <tabstop>radio_van</tabstop>
   <tabstop>radio_truck</tabstop>
   <tabstop>button_create_folders</tabstop>
-  <tabstop>tabWidget</tabstop>
-  <tabstop>combo_test_type</tabstop>
+  <tabstop>textbox_software_2</tabstop>
   <tabstop>tableWidget</tabstop>
   <tabstop>button_add_new_test</tabstop>
+  <tabstop>textbox_oem_2</tabstop>
+  <tabstop>textbox_vin_2</tabstop>
+  <tabstop>combo_test_type</tabstop>
+  <tabstop>textbox_model_2</tabstop>
+  <tabstop>textbox_number_2</tabstop>
+  <tabstop>combo_test_name</tabstop>
+  <tabstop>textbox_year_2</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>x1Front</tabstop>
+  <tabstop>x2Front</tabstop>
+  <tabstop>x3Front</tabstop>
+  <tabstop>x4Front</tabstop>
+  <tabstop>x5Front</tabstop>
+  <tabstop>x6Front</tabstop>
+  <tabstop>x7Front</tabstop>
+  <tabstop>y1Front</tabstop>
+  <tabstop>y2Front</tabstop>
+  <tabstop>y3Front</tabstop>
+  <tabstop>y4Front</tabstop>
+  <tabstop>y5Front</tabstop>
+  <tabstop>y6Front</tabstop>
+  <tabstop>y7Front</tabstop>
+  <tabstop>textOverhang</tabstop>
+  <tabstop>textLenght</tabstop>
+  <tabstop>x1Side</tabstop>
+  <tabstop>y1Side</tabstop>
+  <tabstop>x2Side</tabstop>
+  <tabstop>y2Side</tabstop>
+  <tabstop>x3Side</tabstop>
+  <tabstop>y3Side</tabstop>
+  <tabstop>x4Side</tabstop>
+  <tabstop>y4Side</tabstop>
+  <tabstop>x5Side</tabstop>
+  <tabstop>y5Side</tabstop>
+  <tabstop>x6Side</tabstop>
+  <tabstop>y6Side</tabstop>
+  <tabstop>x7Side</tabstop>
  </tabstops>
  <resources>
   <include location="images.qrc"/>
