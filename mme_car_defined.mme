@@ -1,9 +1,0 @@
-Customer project ref. number:	1111
-Name of test object 1:	Toyota Yaris
-Ref. number of test object 1:	VIN
-S/W version of TOB 1:	[OEM has to specify this]
-Dimensions test object 1:	[length],[width]
-Shape Front TOB 1:	(x1;y1), (x2;y2), (x3;y3), (x4;y4), (x5;y5) (x6;y6), (x7;y7)
-Shape Rear TOB 1:	(x1;y1), (x2;y2), (x3;y3), (x4;y4), (x5;y5) (x6;y6), (x7;y7)
-Shape Right Side TOB 1:	(x1;y1), (x2;y2), (x3;y3), (x4;y4), (x5;y5) (x6;y6), (x7;y7)
-Shape Left Side TOB 1:	(x1;y1), (x2;y2), (x3;y3), (x4;y4), (x5;y5) (x6;y6), (x7;y7)
