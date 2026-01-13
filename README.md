@@ -1,5 +1,5 @@
 # Creazione Cartelle ENCAP (2026)
-In questo readme scrivo principalmente le cose per modificare e espandere il codice, non per l'effettivo uso.
+In questo readme ho scritto principalmente le procedure di base per modificare e espandere il codice, non per l'effettivo uso.
 
 ## Git
 Per la gestione del codice e l'update dello script ho usato un programma si chiama "git". E' lo standard nella scrittura di codice da robe semplici a progetti mega complessi. 
@@ -30,9 +30,13 @@ Quando hai fatto delle modifiche ai file e vuoi selezionare di quali file vuoi f
 
 Una volta che hai selezionato i file, puoi fare effettivamente la "fotografia" al progetto con questo comando. Ogni commit ha anche un messaggio obbligatorio in cui si spiega brevemente quello che si e' fatto.
 
+In VSCode basta andare nella schermata di source control, scrivere il messaggio di commit nella casella di testo e premere il pulsante "Commit".
+
 - git push
 
 Il "commit" salva i file nel progetto in locale sul tuo PC. Se vuoi fare l'upload di quello che hai committato su GitHub devi fare questo passaggio in piu'.
+
+Su VSCode c'e' il pulsante per il push nella stessa riga di quello per il pull.
 
 ## UV
 
