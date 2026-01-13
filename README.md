@@ -20,7 +20,8 @@ In git i progetti vengono chiamate "Repository" (repo per abbreviare) e possono 
 I comandi principali di cui ti interessa sono:
 - git pull
 
-Quando ci sono delle modifiche nella repo in remoto che vuoi vengano "scaricate" nei tuoi file su cui vuoi lavorare. In VSCode si fa TODO
+Quando ci sono delle modifiche nella repo in remoto che vuoi vengano "scaricate" nei tuoi file su cui vuoi lavorare. In VSCode c'e' questo tasto che esegue un pull se premuto
+![alt text](readme_resources/git_pull.jpg "Title")
 - git add [nome_file]
 
 Quando hai fatto delle modifiche ai file e vuoi selezionare di quali file vuoi fare la "fotografia" (VSCode lo fa automaticamente quando fai il commit).
@@ -234,4 +235,4 @@ La lista di parametri per ogni test e' sempre la stessa e' ogni parametro e' nec
 Le robustness sono presenti nel file robustness.json. La struttura del file e' molto simile a quello dei vari test. La differenza principale e' che ci sono tre "livelli":
 Type, Layer e Parameter.
 
-Alcune robustness hanno solo il type, altre il type e il layer e altre ancora hanno tutti e tre
+Alcune robustness hanno solo il type, altre il type e il layer e altre ancora hanno tutti e tre i parametri.
