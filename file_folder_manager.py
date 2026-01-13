@@ -8,26 +8,31 @@ from main import CarDimensions, CarInfo
 def folder_creations(
     parent_folder: Path, test_list, dimentions: CarDimensions, info: CarInfo
 ):
+    # Construct the prefix with the main information
     folder_prefix = f"{info.year[-2:]}-{info.oem}-{info.number}"
 
-    main_folder = parent_folder / f"{folder_prefix}-{info.make} {info.model}"
+    main_folder = parent_folder / f"{folder_prefix}-{info.make}_{info.model}"
     main_folder.mkdir(exist_ok=True, parents=True)
 
     for test in test_list:
         test_name = f"{info.number}"
 
+        # Construct the folder name from the info that are displayed in the QTable
+        # assuming they are the important ones
         for item in test["_ui"]["columns"]:
             if item[1] == "N/A":
                 continue
 
             test_name = f"{test_name}-{sanitize_folder_name(item[1], '')}"
 
+        # Creating all the folders
         test_folder = main_folder / f"{folder_prefix}-{test['macro_type']}" / test_name
         test_folder = create_unique_folder(test_folder)
 
         (test_folder / "Channel").mkdir(exist_ok=True, parents=True)
         (test_folder / "Movie").mkdir(exist_ok=True, parents=True)
 
+        # Generating and creating the mme file
         mme_file_lines = mme_processor(test, dimentions, info)
 
         with open(test_folder / (f"{test_name}.mme"), "w", encoding="utf-8") as file:
@@ -78,6 +83,8 @@ def mme_processor(test, dimentions: CarDimensions, info: CarInfo):
     current_date = datetime.now().strftime("%Y/%m/%d,%H:%M")
     output.append("Timestamp:\t" + current_date)
 
+    # Doing test.get(.......) ensure that you at least have an output of "NOVALUE" if the data is for
+    # some reason missing in the test dictionary
     output.append("Scenario:\t" + test.get("name", "NOVALUE"))
     output.append("Type of the test:\t" + test.get("test_type", "NOVALUE"))
     output.append("Subtype of the test:\t" + test.get("test_condition", "NOVALUE"))
