@@ -60,7 +60,7 @@ Per disinstallarlo
 
 Per far partire lo script (in questo caso main.py) e installare automaticamente eventuali pacchetti che non sono gia' installati.
 
-# Qt
+## Qt
 Qt e' un framework che si usa per fare applicaioni con interfaccia. Si puo' usare con vari linguaggi di programmazione e con varie implementazioni. Quella che ho usato io si chiama "pyside6", ed e' un implentazione open source per python. 
 Ho installato il pacchetto con UV (uv add pyside6).
 
@@ -240,7 +240,7 @@ Type, Layer e Parameter.
 
 Alcune robustness hanno solo il type, altre il type e il layer e altre ancora hanno tutti e tre i parametri.
 
-### TODO
+## TODO
 
 Nel codice ho aggiunto alcuni commenti che iniziano con "TODO" in cui ho messo modifiche al codice che mi sono venute in mente e non sono riuscito a fare.
 Alcune sono assolutamente necessarie per le funzionalita' del software, altre invece sono piu' aggiornamenti di quality of life.
