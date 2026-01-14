@@ -212,7 +212,6 @@ Nel caso invece "user_input" = true, c'e' bisogno di piu' informazioni:
   - "value" e' il valore effettivo che verra' poi messo nell'MME
   - "label" e' la scritta che e' presente nel menu' a tendina per selezionare il valore corrispondente. La scritta poi comparira' nella tabella dopo che e' stato aggiunto il test e nel nome della cartella del test
   
-Notare cosa u
 
 ```json
 {
@@ -240,3 +239,12 @@ Le robustness sono presenti nel file robustness.json. La struttura del file e' m
 Type, Layer e Parameter.
 
 Alcune robustness hanno solo il type, altre il type e il layer e altre ancora hanno tutti e tre i parametri.
+
+### TODO
+
+Nel codice ho aggiunto alcuni commenti che iniziano con "TODO" in cui ho messo modifiche al codice che mi sono venute in mente e non sono riuscito a fare.
+Alcune sono assolutamente necessarie per le funzionalita' del software, altre invece sono piu' aggiornamenti di quality of life.
+
+Notare bene che non sono assolutamente le uniche modifiche da fare, il protocollo e' cambiato piu' volte da quando ho iniziato il progetto ed e' probabile che cambiera' ancora.
+
+La cosa migliore da fare e' guardare il codice (o inizialmente l'output del programma se non si vuole subito entrare nel dettaglio) e verificare che questo rispetti TUTTE le specifiche espresse nel protocollo.

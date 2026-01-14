@@ -88,6 +88,9 @@ def mme_processor(test, dimentions: CarDimensions, info: CarInfo):
     output.append("Scenario:\t" + test.get("name", "NOVALUE"))
     output.append("Type of the test:\t" + test.get("test_type", "NOVALUE"))
     output.append("Subtype of the test:\t" + test.get("test_condition", "NOVALUE"))
+    # TODO I've hardcoded the run repetition to be 1. I dont have an easy fix for this other
+    # than adding another combobox in the test adder to specify the number (and this is still not that easy).
+    output.append("Run repetition:\t1")
     output.append("Region:\tEU")
 
     robustness = test.get("robustness_type", "NOVALUE")
