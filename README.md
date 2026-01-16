@@ -21,6 +21,7 @@ I comandi principali di cui ti interessa sono:
 - git pull
 
 Quando ci sono delle modifiche nella repo in remoto che vuoi vengano "scaricate" nei tuoi file su cui vuoi lavorare. In VSCode c'e' questo tasto che esegue un pull se premuto
+
 ![alt text](readme_resources/git_pull.jpg "Title")
 - git add [nome_file]
 
@@ -46,9 +47,13 @@ Per l'installazione dei paccheti invece si usa un tool che si chiama "pip", che 
 
 Per facilitarmi tutto questo processo ho deciso di usare un tool che si chiama "UV" che sostituisce entrambi gli strumenti.
 
-(Si puo' usare solo da terminale e bisogna essere nella stessa cartella del progetto)
+(Si puo' usare solo da terminale e bisogna essere nella stessa cartella del progetto che viene creata da uv init).
 
 I comandi che vi servono sono:
+- uv init [nome progetto]
+
+Per inizializzare un progetto. Il comando crea una cartella con già il file main.py e la repo git inizializzata.
+
 - uv add [nome pacchetto]
 
 Per installare un pacchetto
