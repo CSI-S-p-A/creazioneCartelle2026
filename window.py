@@ -259,35 +259,15 @@ class Ui_MainWindow(object):
 
         self.groupBox_3 = QGroupBox(self.tab_dimensions)
         self.groupBox_3.setObjectName(u"groupBox_3")
-        self.groupBox_3.setGeometry(QRect(620, 230, 141, 251))
+        self.groupBox_3.setGeometry(QRect(640, 250, 141, 191))
         self.horizontalLayout_4 = QHBoxLayout(self.groupBox_3)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.gridLayout_3 = QGridLayout()
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.label_6 = QLabel(self.groupBox_3)
-        self.label_6.setObjectName(u"label_6")
+        self.y4Side = QLineEdit(self.groupBox_3)
+        self.y4Side.setObjectName(u"y4Side")
 
-        self.gridLayout_3.addWidget(self.label_6, 0, 0, 1, 1)
-
-        self.label_7 = QLabel(self.groupBox_3)
-        self.label_7.setObjectName(u"label_7")
-
-        self.gridLayout_3.addWidget(self.label_7, 0, 1, 1, 1)
-
-        self.x1Side = QLineEdit(self.groupBox_3)
-        self.x1Side.setObjectName(u"x1Side")
-
-        self.gridLayout_3.addWidget(self.x1Side, 1, 0, 1, 1)
-
-        self.y1Side = QLineEdit(self.groupBox_3)
-        self.y1Side.setObjectName(u"y1Side")
-
-        self.gridLayout_3.addWidget(self.y1Side, 1, 1, 1, 1)
-
-        self.x2Side = QLineEdit(self.groupBox_3)
-        self.x2Side.setObjectName(u"x2Side")
-
-        self.gridLayout_3.addWidget(self.x2Side, 2, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.y4Side, 4, 1, 1, 1)
 
         self.y2Side = QLineEdit(self.groupBox_3)
         self.y2Side.setObjectName(u"y2Side")
@@ -299,6 +279,36 @@ class Ui_MainWindow(object):
 
         self.gridLayout_3.addWidget(self.x3Side, 3, 0, 1, 1)
 
+        self.x2Side = QLineEdit(self.groupBox_3)
+        self.x2Side.setObjectName(u"x2Side")
+
+        self.gridLayout_3.addWidget(self.x2Side, 2, 0, 1, 1)
+
+        self.y5Side = QLineEdit(self.groupBox_3)
+        self.y5Side.setObjectName(u"y5Side")
+
+        self.gridLayout_3.addWidget(self.y5Side, 5, 1, 1, 1)
+
+        self.y1Side = QLineEdit(self.groupBox_3)
+        self.y1Side.setObjectName(u"y1Side")
+
+        self.gridLayout_3.addWidget(self.y1Side, 1, 1, 1, 1)
+
+        self.label_6 = QLabel(self.groupBox_3)
+        self.label_6.setObjectName(u"label_6")
+
+        self.gridLayout_3.addWidget(self.label_6, 0, 0, 1, 1)
+
+        self.label_7 = QLabel(self.groupBox_3)
+        self.label_7.setObjectName(u"label_7")
+
+        self.gridLayout_3.addWidget(self.label_7, 0, 1, 1, 1)
+
+        self.x5Side = QLineEdit(self.groupBox_3)
+        self.x5Side.setObjectName(u"x5Side")
+
+        self.gridLayout_3.addWidget(self.x5Side, 5, 0, 1, 1)
+
         self.y3Side = QLineEdit(self.groupBox_3)
         self.y3Side.setObjectName(u"y3Side")
 
@@ -309,40 +319,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout_3.addWidget(self.x4Side, 4, 0, 1, 1)
 
-        self.y4Side = QLineEdit(self.groupBox_3)
-        self.y4Side.setObjectName(u"y4Side")
+        self.x1Side = QLineEdit(self.groupBox_3)
+        self.x1Side.setObjectName(u"x1Side")
 
-        self.gridLayout_3.addWidget(self.y4Side, 4, 1, 1, 1)
-
-        self.x5Side = QLineEdit(self.groupBox_3)
-        self.x5Side.setObjectName(u"x5Side")
-
-        self.gridLayout_3.addWidget(self.x5Side, 5, 0, 1, 1)
-
-        self.y5Side = QLineEdit(self.groupBox_3)
-        self.y5Side.setObjectName(u"y5Side")
-
-        self.gridLayout_3.addWidget(self.y5Side, 5, 1, 1, 1)
-
-        self.x6Side = QLineEdit(self.groupBox_3)
-        self.x6Side.setObjectName(u"x6Side")
-
-        self.gridLayout_3.addWidget(self.x6Side, 6, 0, 1, 1)
-
-        self.y6Side = QLineEdit(self.groupBox_3)
-        self.y6Side.setObjectName(u"y6Side")
-
-        self.gridLayout_3.addWidget(self.y6Side, 6, 1, 1, 1)
-
-        self.x7Side = QLineEdit(self.groupBox_3)
-        self.x7Side.setObjectName(u"x7Side")
-
-        self.gridLayout_3.addWidget(self.x7Side, 7, 0, 1, 1)
-
-        self.y7Side = QLineEdit(self.groupBox_3)
-        self.y7Side.setObjectName(u"y7Side")
-
-        self.gridLayout_3.addWidget(self.y7Side, 7, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.x1Side, 1, 0, 1, 1)
 
 
         self.horizontalLayout_4.addLayout(self.gridLayout_3)
@@ -577,7 +557,6 @@ class Ui_MainWindow(object):
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
-        QWidget.setTabOrder(self.y7Side, self.x1Back)
         QWidget.setTabOrder(self.x1Back, self.x2Back)
         QWidget.setTabOrder(self.x2Back, self.x3Back)
         QWidget.setTabOrder(self.x3Back, self.x4Back)
@@ -634,9 +613,6 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.x4Side, self.y4Side)
         QWidget.setTabOrder(self.y4Side, self.x5Side)
         QWidget.setTabOrder(self.x5Side, self.y5Side)
-        QWidget.setTabOrder(self.y5Side, self.x6Side)
-        QWidget.setTabOrder(self.x6Side, self.y6Side)
-        QWidget.setTabOrder(self.y6Side, self.x7Side)
 
         self.retranslateUi(MainWindow)
 
@@ -688,22 +664,18 @@ class Ui_MainWindow(object):
         self.x1Front.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"x :", None))
         self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"Side Profile", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"x :", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"y :", None))
-        self.x1Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
-        self.y1Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
-        self.x2Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
+        self.y4Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
         self.y2Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
         self.x3Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
+        self.x2Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
+        self.y5Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
+        self.y1Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"x :", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"y :", None))
+        self.x5Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
         self.y3Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
         self.x4Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
-        self.y4Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
-        self.x5Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
-        self.y5Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
-        self.x6Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
-        self.y6Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
-        self.x7Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
-        self.y7Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
+        self.x1Side.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Lenght:", None))
         self.textLenght.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0.00", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Width:", None))

@@ -362,10 +362,10 @@
        <widget class="QGroupBox" name="groupBox_3">
         <property name="geometry">
          <rect>
-          <x>620</x>
-          <y>230</y>
+          <x>640</x>
+          <y>250</y>
           <width>141</width>
-          <height>251</height>
+          <height>191</height>
          </rect>
         </property>
         <property name="title">
@@ -374,36 +374,8 @@
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
           <layout class="QGridLayout" name="gridLayout_3">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_6">
-             <property name="text">
-              <string>x :</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLabel" name="label_7">
-             <property name="text">
-              <string>y :</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLineEdit" name="x1Side">
-             <property name="placeholderText">
-              <string>0.00</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLineEdit" name="y1Side">
-             <property name="placeholderText">
-              <string>0.00</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLineEdit" name="x2Side">
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="y4Side">
              <property name="placeholderText">
               <string>0.00</string>
              </property>
@@ -423,6 +395,48 @@
              </property>
             </widget>
            </item>
+           <item row="2" column="0">
+            <widget class="QLineEdit" name="x2Side">
+             <property name="placeholderText">
+              <string>0.00</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="y5Side">
+             <property name="placeholderText">
+              <string>0.00</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="y1Side">
+             <property name="placeholderText">
+              <string>0.00</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_6">
+             <property name="text">
+              <string>x :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>y :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLineEdit" name="x5Side">
+             <property name="placeholderText">
+              <string>0.00</string>
+             </property>
+            </widget>
+           </item>
            <item row="3" column="1">
             <widget class="QLineEdit" name="y3Side">
              <property name="placeholderText">
@@ -437,50 +451,8 @@
              </property>
             </widget>
            </item>
-           <item row="4" column="1">
-            <widget class="QLineEdit" name="y4Side">
-             <property name="placeholderText">
-              <string>0.00</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="0">
-            <widget class="QLineEdit" name="x5Side">
-             <property name="placeholderText">
-              <string>0.00</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="1">
-            <widget class="QLineEdit" name="y5Side">
-             <property name="placeholderText">
-              <string>0.00</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0">
-            <widget class="QLineEdit" name="x6Side">
-             <property name="placeholderText">
-              <string>0.00</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="1">
-            <widget class="QLineEdit" name="y6Side">
-             <property name="placeholderText">
-              <string>0.00</string>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="0">
-            <widget class="QLineEdit" name="x7Side">
-             <property name="placeholderText">
-              <string>0.00</string>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="1">
-            <widget class="QLineEdit" name="y7Side">
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="x1Side">
              <property name="placeholderText">
               <string>0.00</string>
              </property>
@@ -998,7 +970,6 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
-  <tabstop>y7Side</tabstop>
   <tabstop>x1Back</tabstop>
   <tabstop>x2Back</tabstop>
   <tabstop>x3Back</tabstop>
@@ -1025,16 +996,10 @@
   <tabstop>radio_van</tabstop>
   <tabstop>radio_truck</tabstop>
   <tabstop>button_create_folders</tabstop>
-  <tabstop>textbox_software_2</tabstop>
   <tabstop>tableWidget</tabstop>
   <tabstop>button_add_new_test</tabstop>
-  <tabstop>textbox_oem_2</tabstop>
-  <tabstop>textbox_vin_2</tabstop>
   <tabstop>combo_test_type</tabstop>
-  <tabstop>textbox_model_2</tabstop>
-  <tabstop>textbox_number_2</tabstop>
   <tabstop>combo_test_name</tabstop>
-  <tabstop>textbox_year_2</tabstop>
   <tabstop>tabWidget</tabstop>
   <tabstop>x1Front</tabstop>
   <tabstop>x2Front</tabstop>
@@ -1062,9 +1027,6 @@
   <tabstop>y4Side</tabstop>
   <tabstop>x5Side</tabstop>
   <tabstop>y5Side</tabstop>
-  <tabstop>x6Side</tabstop>
-  <tabstop>y6Side</tabstop>
-  <tabstop>x7Side</tabstop>
  </tabstops>
  <resources>
   <include location="images.qrc"/>

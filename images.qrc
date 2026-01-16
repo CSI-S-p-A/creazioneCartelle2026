@@ -1,6 +1,5 @@
 <RCC>
   <qresource prefix="car">
-    <file>car.svg</file>
     <file>car2.svg</file>
   </qresource>
 </RCC>

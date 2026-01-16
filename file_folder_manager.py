@@ -118,13 +118,13 @@ def mme_processor(test, dimentions: CarDimensions, info: CarInfo):
     front_points_str = ", ".join(f"({p.x};{p.y})" for p in dimentions.profile.front)
     output.append(f"Shape Front TOB 1:\t{front_points_str}")
 
-    left_points_str = ", ".join(f"({p.x};{p.y})" for p in dimentions.profile.side)
+    left_points_str = ", ".join(f"({p.x};{p.y})" for p in dimentions.profile.left)
     output.append(f"Shape Left Side TOB 1:\t{left_points_str}")
 
     rear_points_str = ", ".join(f"({p.x};{p.y})" for p in dimentions.profile.back)
     output.append(f"Shape Rear TOB 1:\t{rear_points_str}")
 
-    right_points_str = ", ".join(f"({p.x};{p.y})" for p in dimentions.profile.side)
+    right_points_str = ", ".join(f"({p.x};{p.y})" for p in dimentions.profile.right)
     output.append(f"Shape Right Side TOB 1:\t{right_points_str}")
 
     output.append("Front overhang TOB 1:\t" + str(dimentions.overhang))

@@ -22,8 +22,8 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
     QWidget,
 )
-# test altro commento
 
+# test altro commento
 import file_folder_manager
 
 # Imports the main UI from the window.py file that is generated from window.ui
@@ -42,8 +42,9 @@ class Point:
 @dataclass
 class CarProfile:
     front: List[Point] = field(default_factory=list)
-    side: List[Point] = field(default_factory=list)
+    left: List[Point] = field(default_factory=list)
     back: List[Point] = field(default_factory=list)
+    right: List[Point] = field(default_factory=list)
 
 
 @dataclass
@@ -222,15 +223,48 @@ class MainWindow(QMainWindow):
         # Parsing of the text in the dimension tab, the textboxes are named like
         # x1Front,y1Front etc..., so that text is for that
 
-        for section in SECTIONS:
-            for i in range(1, 8):  # 7 points each
-                x_text = getattr(self.ui, f"x{i}{section.capitalize()}")
-                y_text = getattr(self.ui, f"y{i}{section.capitalize()}")
+        # Front
+        front_profile = []
+        for i in range(1, 8):
+            x_text = getattr(self.ui, f"x{i}{'Front'}")
+            y_text = getattr(self.ui, f"y{i}{'Front'}")
+            x = float(x_text.text().strip()) * 1000.0
+            y = float(y_text.text().strip()) * 1000.0
+            front_profile.append(Point(x, y))
 
-                # Conversion from meter to mm
-                x = float(x_text.text().strip()) * 1000.0
-                y = float(y_text.text().strip()) * 1000.0
-                getattr(profile, section).append(Point(x, y))
+        front_profile.reverse()
+        profile.front = front_profile
+
+        # Right
+        right_profile = []
+        for i in range(1, 6):
+            x_text = getattr(self.ui, f"x{i}{'Side'}")
+            y_text = getattr(self.ui, f"y{i}{'Side'}")
+            x = float(x_text.text().strip()) * 1000.0
+            y = float(y_text.text().strip()) * 1000.0
+            right_profile.append(Point(x, y))
+
+        right_profile.reverse()
+        profile.right = right_profile
+
+        # Left
+        left_profile = []
+        for point in profile.right:
+            left_profile.append(Point(point.x, -point.y))
+
+        left_profile.reverse()
+        profile.left = left_profile
+
+        # Back
+        back_profile = []
+        for i in range(1, 8):
+            x_text = getattr(self.ui, f"x{i}{'Back'}")
+            y_text = getattr(self.ui, f"y{i}{'Back'}")
+            x = float(x_text.text().strip()) * 1000.0
+            y = float(y_text.text().strip()) * 1000.0
+            back_profile.append(Point(x, y))
+
+        profile.back = back_profile
 
         # Same thing for the other dimentions
         output = CarDimensions(
